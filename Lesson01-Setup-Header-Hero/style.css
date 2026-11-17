@@ -41,7 +41,7 @@ img {
    16px padding top and bottom. */
 
 .site-header {
-   background-color: #111827;
+   background-color: black;
 }
 .nav {
    display: flex;
@@ -70,16 +70,53 @@ img {
 /* STEP 4 · .logo
    Bigger than the links (1.6rem), bold, white, no underline. */
 
+.logo {
+   color: white;
+   font-size: 1.6rem;
+   font-weight: 700;
+   text-decoration: none;
+}
 
 /* STEP 5 · .hero
    At least 70vh tall, a background colour, white text.
    Text centered, and the content centered up and down. */
 
+.hero {
+   min-height: 70vh;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   background-color: #1e3a8a;
+   color: white;
+}
 
 /* STEP 6 · .btn and .hero-buttons
    .btn: inline-block, padding 12px 28px, rounded corners, no underline, bold.
    Give .btn-primary and .btn-secondary different looks.
    .hero-buttons: the two buttons side by side, centered, 16px apart. */
+
+.btn {
+   display: inline-block;
+   padding: 12px 28px;
+   border: 2px solid transparent;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: 700;
+}
+
+.btn-primary {
+   background-color: #f59e0b;
+   color: #111827;
+}
+.btn-secondary {
+   color: white;
+   border-color: white;
+}
+.hero-buttons {
+   display: flex;
+   justify-content: center;
+   gap: 16px;
+}
 
 
 /* Done early? Try other colours from the reference sheet (Colors tab).
