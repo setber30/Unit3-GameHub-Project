@@ -94,6 +94,7 @@ img {
     --primary: #000000;
     --secondary: #D3AF37;
     --textColor: white;
+    --font: serif;
 }
 
 /* STEP 2 ▸ use var() for every colour */
@@ -118,8 +119,27 @@ img {
 
 /* STEP 3 ▸ one font for the body */
 
+body {
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
 /* STEP 4 ▸ heading sizes in rem */
 
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+
 /* STEP 5 ▸ a gradient on .hero */
+
+.hero {
+    background: linear-gradient(100deg, var(--primary))
+}
 
 /* STEP 6 ▸ text you can read on it */
