@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameHub 6: Game Gallery</title>
+
+
+<link rel="stylesheet" href="/_app/vendor/reveal/5.1.0/reveal.css"
+      onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css'">
+<style>
+/* deck-themes: built by tools/design/build.py from tools/design/tokens.json (deck); do not edit */
+html {
+  --dk-classic-light-ink: #F4F5FB; --dk-classic-light-ink-2: #ffffff; --dk-classic-light-wire: #CFD1DB; --dk-classic-light-grid: #F9FAFF; --dk-classic-light-chalk: #22242B; --dk-classic-light-chalk-dim: #40424A; --dk-classic-light-signal: #1B1E30; --dk-classic-light-on-signal: #ffffff; --dk-classic-light-amber: #bc4b09; --dk-classic-light-go: #0e700e; --dk-classic-light-tag: #E5E6EC; --dk-classic-light-tag-text: #40424A;
+  --dk-classic-dark-ink: #12131C; --dk-classic-dark-ink-2: #272832; --dk-classic-dark-wire: #616579; --dk-classic-dark-grid: #1D1E28; --dk-classic-dark-chalk: #ffffff; --dk-classic-dark-chalk-dim: #D0D5EC; --dk-classic-dark-signal: #E1E4F2; --dk-classic-dark-on-signal: #1B1E30; --dk-classic-dark-amber: #f98845; --dk-classic-dark-go: #54b054; --dk-classic-dark-tag: #31323C; --dk-classic-dark-tag-text: #D0D5EC;
+  --dk-sheet-light-ink: #FBF4ED; --dk-sheet-light-ink-2: #ffffff; --dk-sheet-light-wire: #DBCFC2; --dk-sheet-light-grid: #FFF9F3; --dk-sheet-light-chalk: #2B2219; --dk-sheet-light-chalk-dim: #4A4036; --dk-sheet-light-signal: #1B1E30; --dk-sheet-light-on-signal: #ffffff; --dk-sheet-light-amber: #bc4b09; --dk-sheet-light-go: #0e700e; --dk-sheet-light-tag: #ECE5DE; --dk-sheet-light-tag-text: #4A4036;
+  --dk-sheet-dark-ink: #18130E; --dk-sheet-dark-ink-2: #2D2823; --dk-sheet-dark-wire: #6E6459; --dk-sheet-dark-grid: #231E19; --dk-sheet-dark-chalk: #ffffff; --dk-sheet-dark-chalk-dim: #E0D4C7; --dk-sheet-dark-signal: #E1E4F2; --dk-sheet-dark-on-signal: #1B1E30; --dk-sheet-dark-amber: #f98845; --dk-sheet-dark-go: #54b054; --dk-sheet-dark-tag: #37322D; --dk-sheet-dark-tag-text: #E0D4C7;
+  --dk-stage-light-ink: #F4F5FB; --dk-stage-light-ink-2: #ffffff; --dk-stage-light-wire: #CFD1DB; --dk-stage-light-grid: #F9FAFF; --dk-stage-light-chalk: #22242B; --dk-stage-light-chalk-dim: #40424A; --dk-stage-light-signal: #966700; --dk-stage-light-on-signal: #ffffff; --dk-stage-light-amber: #bc4b09; --dk-stage-light-go: #0e700e; --dk-stage-light-tag: #E5E6EC; --dk-stage-light-tag-text: #40424A;
+  --dk-stage-dark-ink: #141414; --dk-stage-dark-ink-2: #1F1F1F; --dk-stage-dark-wire: #3D3D3D; --dk-stage-dark-grid: #141414; --dk-stage-dark-chalk: #FFFFFF; --dk-stage-dark-chalk-dim: #ADADAD; --dk-stage-dark-signal: #E9A419; --dk-stage-dark-on-signal: #201300; --dk-stage-dark-amber: #f98845; --dk-stage-dark-go: #54B054; --dk-stage-dark-tag: #31323C; --dk-stage-dark-tag-text: #D0D5EC;
+  --dk-calm-light-ink: #EFF6FB; --dk-calm-light-ink-2: #ffffff; --dk-calm-light-wire: #DAE1E6; --dk-calm-light-grid: #EFF6FB; --dk-calm-light-chalk: #1C262C; --dk-calm-light-chalk-dim: #39444A; --dk-calm-light-signal: #41759E; --dk-calm-light-on-signal: #ffffff; --dk-calm-light-amber: #bc4b09; --dk-calm-light-go: #0e700e; --dk-calm-light-tag: #E0E7EC; --dk-calm-light-tag-text: #39444A;
+  --dk-calm-dark-ink: #0C151B; --dk-calm-dark-ink-2: #212B31; --dk-calm-dark-wire: #49545B; --dk-calm-dark-grid: #0C151B; --dk-calm-dark-chalk: #ffffff; --dk-calm-dark-chalk-dim: #C3DAE9; --dk-calm-dark-signal: #7EB5E0; --dk-calm-dark-on-signal: #00182A; --dk-calm-dark-amber: #f98845; --dk-calm-dark-go: #54b054; --dk-calm-dark-tag: #2A353B; --dk-calm-dark-tag-text: #C3DAE9;
+  --dk-bold-light-ink: #FDF2F1; --dk-bold-light-ink-2: #ffffff; --dk-bold-light-wire: #DFCCCA; --dk-bold-light-grid: #FFF8F8; --dk-bold-light-chalk: #2E201F; --dk-bold-light-chalk-dim: #4D3E3C; --dk-bold-light-signal: #D1311E; --dk-bold-light-on-signal: #ffffff; --dk-bold-light-amber: #bc4b09; --dk-bold-light-go: #0e700e; --dk-bold-light-tag: #EEE3E2; --dk-bold-light-tag-text: #4D3E3C;
+  --dk-bold-dark-ink: #1C1110; --dk-bold-dark-ink-2: #322524; --dk-bold-dark-wire: #7A5E5C; --dk-bold-dark-grid: #281B1A; --dk-bold-dark-chalk: #ffffff; --dk-bold-dark-chalk-dim: #EDCECA; --dk-bold-dark-signal: #FF8672; --dk-bold-dark-on-signal: #2C0805; --dk-bold-dark-amber: #f98845; --dk-bold-dark-go: #54b054; --dk-bold-dark-tag: #3D2F2E; --dk-bold-dark-tag-text: #EDCECA;
+  --dk-cobalt-light-ink: #F0F5FF; --dk-cobalt-light-ink-2: #ffffff; --dk-cobalt-light-wire: #C3D2EC; --dk-cobalt-light-grid: #F8FAFF; --dk-cobalt-light-chalk: #192437; --dk-cobalt-light-chalk-dim: #374258; --dk-cobalt-light-signal: #2A4AD7; --dk-cobalt-light-on-signal: #ffffff; --dk-cobalt-light-amber: #bc4b09; --dk-cobalt-light-go: #0e700e; --dk-cobalt-light-tag: #DEE7F5; --dk-cobalt-light-tag-text: #374258;
+  --dk-cobalt-dark-ink: #0B1424; --dk-cobalt-dark-ink-2: #1F293B; --dk-cobalt-dark-wire: #52668C; --dk-cobalt-dark-grid: #161F30; --dk-cobalt-dark-chalk: #ffffff; --dk-cobalt-dark-chalk-dim: #C1D7FF; --dk-cobalt-dark-signal: #8AABFF; --dk-cobalt-dark-on-signal: #0A1331; --dk-cobalt-dark-amber: #f98845; --dk-cobalt-dark-go: #54b054; --dk-cobalt-dark-tag: #293346; --dk-cobalt-dark-tag-text: #C1D7FF;
+  --dk-sunset-light-ink: #FFF2EA; --dk-sunset-light-ink-2: #ffffff; --dk-sunset-light-wire: #E7CBB9; --dk-sunset-light-grid: #FFF9F5; --dk-sunset-light-chalk: #331F11; --dk-sunset-light-chalk-dim: #533D2E; --dk-sunset-light-signal: #B75300; --dk-sunset-light-on-signal: #ffffff; --dk-sunset-light-amber: #bc4b09; --dk-sunset-light-go: #0e700e; --dk-sunset-light-tag: #F3E3D9; --dk-sunset-light-tag-text: #533D2E;
+  --dk-sunset-dark-ink: #200F04; --dk-sunset-dark-ink-2: #372418; --dk-sunset-dark-wire: #835C42; --dk-sunset-dark-grid: #2C1A0E; --dk-sunset-dark-chalk: #ffffff; --dk-sunset-dark-chalk-dim: #F9CCAE; --dk-sunset-dark-signal: #FF8A43; --dk-sunset-dark-on-signal: #280D00; --dk-sunset-dark-amber: #f98845; --dk-sunset-dark-go: #54b054; --dk-sunset-dark-tag: #422E21; --dk-sunset-dark-tag-text: #F9CCAE;
+  --dk-mono-light-ink: #F5F5F5; --dk-mono-light-ink-2: #ffffff; --dk-mono-light-wire: #D1D1D1; --dk-mono-light-grid: #FAFAFA; --dk-mono-light-chalk: #242424; --dk-mono-light-chalk-dim: #424242; --dk-mono-light-signal: #242424; --dk-mono-light-on-signal: #ffffff; --dk-mono-light-amber: #bc4b09; --dk-mono-light-go: #0e700e; --dk-mono-light-tag: #E6E6E6; --dk-mono-light-tag-text: #424242;
+  --dk-mono-dark-ink: #141414; --dk-mono-dark-ink-2: #292929; --dk-mono-dark-wire: #666666; --dk-mono-dark-grid: #1F1F1F; --dk-mono-dark-chalk: #ffffff; --dk-mono-dark-chalk-dim: #D6D6D6; --dk-mono-dark-signal: #ffffff; --dk-mono-dark-on-signal: #292929; --dk-mono-dark-amber: #f98845; --dk-mono-dark-go: #54b054; --dk-mono-dark-tag: #333333; --dk-mono-dark-tag-text: #D6D6D6;
+  --dk-midnight-light-ink: #F1F5FF; --dk-midnight-light-ink-2: #ffffff; --dk-midnight-light-wire: #C6D1EA; --dk-midnight-light-grid: #F8FAFF; --dk-midnight-light-chalk: #1B2436; --dk-midnight-light-chalk-dim: #394256; --dk-midnight-light-signal: #0078A4; --dk-midnight-light-on-signal: #ffffff; --dk-midnight-light-amber: #bc4b09; --dk-midnight-light-go: #0e700e; --dk-midnight-light-tag: #E0E6F4; --dk-midnight-light-tag-text: #394256;
+  --dk-midnight-dark-ink: #08122C; --dk-midnight-dark-ink-2: #1C2844; --dk-midnight-dark-wire: #4A649F; --dk-midnight-dark-grid: #121E39; --dk-midnight-dark-chalk: #ffffff; --dk-midnight-dark-chalk-dim: #C3D6FF; --dk-midnight-dark-signal: #39BDF9; --dk-midnight-dark-on-signal: #001925; --dk-midnight-dark-amber: #f98845; --dk-midnight-dark-go: #54b054; --dk-midnight-dark-tag: #25324F; --dk-midnight-dark-tag-text: #C3D6FF;
+  --dk-code-light-ink: #FFFFFF; --dk-code-light-ink-2: #F3F3F3; --dk-code-light-wire: #E5E5E5; --dk-code-light-grid: #FFFFFF; --dk-code-light-chalk: #000000; --dk-code-light-chalk-dim: #616161; --dk-code-light-signal: #005FB8; --dk-code-light-on-signal: #ffffff; --dk-code-light-amber: #bc4b09; --dk-code-light-go: #0e700e; --dk-code-light-tag: #F3F3F3; --dk-code-light-tag-text: #616161;
+  --dk-code-dark-ink: #1E1E1E; --dk-code-dark-ink-2: #252526; --dk-code-dark-wire: #333333; --dk-code-dark-grid: #1E1E1E; --dk-code-dark-chalk: #D4D4D4; --dk-code-dark-chalk-dim: #969696; --dk-code-dark-signal: #569CD6; --dk-code-dark-on-signal: #1E1E1E; --dk-code-dark-amber: #f98845; --dk-code-dark-go: #54b054; --dk-code-dark-tag: #252526; --dk-code-dark-tag-text: #969696;
+  --dk-blueprint-light-ink: #F5F8FC; --dk-blueprint-light-ink-2: #FFFFFF; --dk-blueprint-light-wire: #C3CFDF; --dk-blueprint-light-grid: #E4EBF5; --dk-blueprint-light-chalk: #101A2B; --dk-blueprint-light-chalk-dim: #3B4C66; --dk-blueprint-light-signal: #C8104A; --dk-blueprint-light-on-signal: #FFFFFF; --dk-blueprint-light-amber: #8A5F00; --dk-blueprint-light-go: #18794A; --dk-blueprint-light-tag: #E4EBF5; --dk-blueprint-light-tag-text: #3B4C66;
+  --dk-blueprint-dark-ink: #101A2B; --dk-blueprint-dark-ink-2: #18263C; --dk-blueprint-dark-wire: #2B3F5F; --dk-blueprint-dark-grid: #1E2F47; --dk-blueprint-dark-chalk: #EAF0F7; --dk-blueprint-dark-chalk-dim: #AEC0D8; --dk-blueprint-dark-signal: #FF426E; --dk-blueprint-dark-on-signal: #101A2B; --dk-blueprint-dark-amber: #F2B705; --dk-blueprint-dark-go: #5ADB8C; --dk-blueprint-dark-tag: #22334D; --dk-blueprint-dark-tag-text: #AEC0D8;
+  --dk-code-light-vs-bg: #FFFFFF; --dk-code-light-vs-text: #000000; --dk-code-light-vs-keyword: #0000FF; --dk-code-light-vs-control: #AF00DB; --dk-code-light-vs-func: #795E26; --dk-code-light-vs-string: #A31515; --dk-code-light-vs-number: #098658; --dk-code-light-vs-var: #001080; --dk-code-light-vs-type: #267F99; --dk-code-light-vs-comment: #008000; --dk-code-light-vs-tag: #800000; --dk-code-light-vs-tag-name: #800000; --dk-code-light-vs-selector: #800000; --dk-code-light-vs-gutter: #237893; --dk-code-light-vs-blank: #0000FF; --dk-code-light-vs-attr: #E50000; --dk-code-light-vs-value: #0451A5; --dk-code-light-vs-chrome: #F3F3F3; --dk-code-light-vs-line: #E5E5E5; --dk-code-light-vs-tab-dim: #616161; --dk-code-light-vs-tab-active: #333333; --dk-code-light-vs-focus: #005FB8;
+  --dk-code-dark-vs-bg: #1E1E1E; --dk-code-dark-vs-text: #D4D4D4; --dk-code-dark-vs-keyword: #569CD6; --dk-code-dark-vs-control: #C586C0; --dk-code-dark-vs-func: #DCDCAA; --dk-code-dark-vs-string: #CE9178; --dk-code-dark-vs-number: #B5CEA8; --dk-code-dark-vs-var: #9CDCFE; --dk-code-dark-vs-type: #4EC9B0; --dk-code-dark-vs-comment: #6A9955; --dk-code-dark-vs-tag: #858585; --dk-code-dark-vs-tag-name: #569CD6; --dk-code-dark-vs-selector: #D7BA7D; --dk-code-dark-vs-gutter: #858585; --dk-code-dark-vs-blank: #569CD6; --dk-code-dark-vs-attr: #9CDCFE; --dk-code-dark-vs-value: #CE9178; --dk-code-dark-vs-chrome: #252526; --dk-code-dark-vs-line: #333333; --dk-code-dark-vs-tab-dim: #969696; --dk-code-dark-vs-tab-active: #FFFFFF; --dk-code-dark-vs-focus: #0078D4;
+  --font-display: 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --font-body: 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --font-mono: 'Cascadia Code', 'Cascadia Mono', Consolas, ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+:root { --ink: var(--dk-classic-light-ink); --ink-2: var(--dk-classic-light-ink-2); --wire: var(--dk-classic-light-wire); --grid: var(--dk-classic-light-grid); --chalk: var(--dk-classic-light-chalk); --chalk-dim: var(--dk-classic-light-chalk-dim); --signal: var(--dk-classic-light-signal); --on-signal: var(--dk-classic-light-on-signal); --amber: var(--dk-classic-light-amber); --go: var(--dk-classic-light-go); --tag: var(--dk-classic-light-tag); --tag-text: var(--dk-classic-light-tag-text); --vs-bg: var(--dk-code-light-vs-bg); --vs-text: var(--dk-code-light-vs-text); --vs-keyword: var(--dk-code-light-vs-keyword); --vs-control: var(--dk-code-light-vs-control); --vs-func: var(--dk-code-light-vs-func); --vs-string: var(--dk-code-light-vs-string); --vs-number: var(--dk-code-light-vs-number); --vs-var: var(--dk-code-light-vs-var); --vs-type: var(--dk-code-light-vs-type); --vs-comment: var(--dk-code-light-vs-comment); --vs-tag: var(--dk-code-light-vs-tag); --vs-tag-name: var(--dk-code-light-vs-tag-name); --vs-selector: var(--dk-code-light-vs-selector); --vs-gutter: var(--dk-code-light-vs-gutter); --vs-blank: var(--dk-code-light-vs-blank); --vs-attr: var(--dk-code-light-vs-attr); --vs-value: var(--dk-code-light-vs-value); --vs-chrome: var(--dk-code-light-vs-chrome); --vs-line: var(--dk-code-light-vs-line); --vs-tab-dim: var(--dk-code-light-vs-tab-dim); --vs-tab-active: var(--dk-code-light-vs-tab-active); --vs-focus: var(--dk-code-light-vs-focus); --deck-scheme: light; color-scheme: light; --deck-title-scale: 1; --deck-body-scale: 1; }
+@media (prefers-color-scheme: dark) { :root:not([data-scheme="light"]) { --ink: var(--dk-classic-dark-ink); --ink-2: var(--dk-classic-dark-ink-2); --wire: var(--dk-classic-dark-wire); --grid: var(--dk-classic-dark-grid); --chalk: var(--dk-classic-dark-chalk); --chalk-dim: var(--dk-classic-dark-chalk-dim); --signal: var(--dk-classic-dark-signal); --on-signal: var(--dk-classic-dark-on-signal); --amber: var(--dk-classic-dark-amber); --go: var(--dk-classic-dark-go); --tag: var(--dk-classic-dark-tag); --tag-text: var(--dk-classic-dark-tag-text); --vs-bg: var(--dk-code-dark-vs-bg); --vs-text: var(--dk-code-dark-vs-text); --vs-keyword: var(--dk-code-dark-vs-keyword); --vs-control: var(--dk-code-dark-vs-control); --vs-func: var(--dk-code-dark-vs-func); --vs-string: var(--dk-code-dark-vs-string); --vs-number: var(--dk-code-dark-vs-number); --vs-var: var(--dk-code-dark-vs-var); --vs-type: var(--dk-code-dark-vs-type); --vs-comment: var(--dk-code-dark-vs-comment); --vs-tag: var(--dk-code-dark-vs-tag); --vs-tag-name: var(--dk-code-dark-vs-tag-name); --vs-selector: var(--dk-code-dark-vs-selector); --vs-gutter: var(--dk-code-dark-vs-gutter); --vs-blank: var(--dk-code-dark-vs-blank); --vs-attr: var(--dk-code-dark-vs-attr); --vs-value: var(--dk-code-dark-vs-value); --vs-chrome: var(--dk-code-dark-vs-chrome); --vs-line: var(--dk-code-dark-vs-line); --vs-tab-dim: var(--dk-code-dark-vs-tab-dim); --vs-tab-active: var(--dk-code-dark-vs-tab-active); --vs-focus: var(--dk-code-dark-vs-focus); --deck-scheme: dark; color-scheme: dark; --deck-title-scale: 1; --deck-body-scale: 1; } }
+:root[data-scheme="dark"] { --ink: var(--dk-classic-dark-ink); --ink-2: var(--dk-classic-dark-ink-2); --wire: var(--dk-classic-dark-wire); --grid: var(--dk-classic-dark-grid); --chalk: var(--dk-classic-dark-chalk); --chalk-dim: var(--dk-classic-dark-chalk-dim); --signal: var(--dk-classic-dark-signal); --on-signal: var(--dk-classic-dark-on-signal); --amber: var(--dk-classic-dark-amber); --go: var(--dk-classic-dark-go); --tag: var(--dk-classic-dark-tag); --tag-text: var(--dk-classic-dark-tag-text); --vs-bg: var(--dk-code-dark-vs-bg); --vs-text: var(--dk-code-dark-vs-text); --vs-keyword: var(--dk-code-dark-vs-keyword); --vs-control: var(--dk-code-dark-vs-control); --vs-func: var(--dk-code-dark-vs-func); --vs-string: var(--dk-code-dark-vs-string); --vs-number: var(--dk-code-dark-vs-number); --vs-var: var(--dk-code-dark-vs-var); --vs-type: var(--dk-code-dark-vs-type); --vs-comment: var(--dk-code-dark-vs-comment); --vs-tag: var(--dk-code-dark-vs-tag); --vs-tag-name: var(--dk-code-dark-vs-tag-name); --vs-selector: var(--dk-code-dark-vs-selector); --vs-gutter: var(--dk-code-dark-vs-gutter); --vs-blank: var(--dk-code-dark-vs-blank); --vs-attr: var(--dk-code-dark-vs-attr); --vs-value: var(--dk-code-dark-vs-value); --vs-chrome: var(--dk-code-dark-vs-chrome); --vs-line: var(--dk-code-dark-vs-line); --vs-tab-dim: var(--dk-code-dark-vs-tab-dim); --vs-tab-active: var(--dk-code-dark-vs-tab-active); --vs-focus: var(--dk-code-dark-vs-focus); --deck-scheme: dark; color-scheme: dark; --deck-title-scale: 1; --deck-body-scale: 1; }
+@media print { :root:root:root { --ink: var(--dk-classic-light-ink); --ink-2: var(--dk-classic-light-ink-2); --wire: var(--dk-classic-light-wire); --grid: var(--dk-classic-light-grid); --chalk: var(--dk-classic-light-chalk); --chalk-dim: var(--dk-classic-light-chalk-dim); --signal: var(--dk-classic-light-signal); --on-signal: var(--dk-classic-light-on-signal); --amber: var(--dk-classic-light-amber); --go: var(--dk-classic-light-go); --tag: var(--dk-classic-light-tag); --tag-text: var(--dk-classic-light-tag-text); --vs-bg: var(--dk-code-light-vs-bg); --vs-text: var(--dk-code-light-vs-text); --vs-keyword: var(--dk-code-light-vs-keyword); --vs-control: var(--dk-code-light-vs-control); --vs-func: var(--dk-code-light-vs-func); --vs-string: var(--dk-code-light-vs-string); --vs-number: var(--dk-code-light-vs-number); --vs-var: var(--dk-code-light-vs-var); --vs-type: var(--dk-code-light-vs-type); --vs-comment: var(--dk-code-light-vs-comment); --vs-tag: var(--dk-code-light-vs-tag); --vs-tag-name: var(--dk-code-light-vs-tag-name); --vs-selector: var(--dk-code-light-vs-selector); --vs-gutter: var(--dk-code-light-vs-gutter); --vs-blank: var(--dk-code-light-vs-blank); --vs-attr: var(--dk-code-light-vs-attr); --vs-value: var(--dk-code-light-vs-value); --vs-chrome: var(--dk-code-light-vs-chrome); --vs-line: var(--dk-code-light-vs-line); --vs-tab-dim: var(--dk-code-light-vs-tab-dim); --vs-tab-active: var(--dk-code-light-vs-tab-active); --vs-focus: var(--dk-code-light-vs-focus); --deck-scheme: light; color-scheme: light; --deck-title-scale: 1; --deck-body-scale: 1; } }
+/* end deck-themes */
+
+/* The theme's colours come from the block above (SL1 #2823): Classic, light or dark as the
+   device is, dark on the Screen, light in print. A look (starters.LOOKS) lays its own over it.
+   Its fonts too (SL2 #2824): --font-display, --font-body and --font-mono are installed stacks,
+   never a web font, so a student's Follow asks no third party for anything. */
+
+.reveal-viewport {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.reveal { font-family: var(--font-body); color: var(--chalk); font-size: calc(36px * var(--deck-body-scale, 1)); }
+.reveal .slides { text-align: left; }
+.reveal .slides section {
+  height: 100%; padding: 22px 38px; box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--font-display); font-weight: 700; color: var(--chalk);
+  text-transform: none; text-shadow: none; letter-spacing: -.02em; margin: 0 0 .3em;
+}
+.reveal h1 { font-size: calc(2.15em * var(--deck-title-scale, 1)); line-height: 1.04; }
+.reveal h2 { font-size: calc(1.6em * var(--deck-title-scale, 1)); line-height: 1.08; }
+.reveal strong { color: var(--amber); font-weight: 600; }
+.reveal em { color: var(--chalk-dim); font-style: italic; }
+.reveal p  { margin: .3em 0; }
+.reveal .controls { color: var(--chalk-dim); }
+/* SL3 #2825: the theme's secondary text, AA on every ground (the old slate was 3.1:1). */
+.reveal .slide-number { font-family: var(--font-mono); font-size: 15px; background: none; color: var(--chalk-dim); }
+
+.reveal h1 .mono, .reveal h2 .mono, .reveal h3 .mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+  letter-spacing: -0.01em;
+}
+
+.reveal .eyebrow {
+  font: 600 .66em/1 var(--font-mono); color: var(--signal);
+  letter-spacing: .14em; text-transform: uppercase;
+  display: block; margin-bottom: .3em;
+}
+.reveal .unit-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--chalk);
+  background: color-mix(in srgb, var(--signal) 18%, transparent);
+  border: 2px solid var(--signal);
+  border-radius: 12px;
+  padding: 10px 26px;
+  margin-bottom: 18px;
+}
+.reveal .review-visuals { display: flex; justify-content: center; gap: 34px; margin-bottom: 40px; }
+.reveal .review-visuals .rv {
+  font-size: 3.1em;
+  line-height: 1;
+  background: color-mix(in srgb, var(--wire) 55%, transparent);
+  border: 2px solid var(--wire);
+  border-radius: 22px;
+  padding: 26px 30px;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.reveal .review-visuals .rv:nth-child(1) { border-color: var(--signal); }
+.reveal .review-visuals .rv:nth-child(2) { border-color: var(--amber); }
+.reveal .review-visuals .rv:nth-child(3) { border-color: #569CD6; }
+.reveal .review-visuals .rv:nth-child(4) { border-color: var(--go); }
+.reveal .review-title {
+  font-size: 4.6em;
+  letter-spacing: -.03em;
+  margin: 0 0 6px;
+}
+.reveal .title-bar {
+  width: 260px; height: 9px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--signal), var(--amber));
+  margin: 10px auto 26px;
+}
+.reveal .review-sub {
+  font: 600 .82em/1 var(--font-mono);
+  color: var(--chalk);
+  letter-spacing: .22em;
+  margin-bottom: 54px;
+}
+.reveal .review-sub .dot { color: var(--amber); padding: 0 6px; }
+.reveal .session-map {
+  display: flex; justify-content: center; align-items: center; gap: 18px;
+  font: 600 .62em/1 var(--font-mono);
+}
+.reveal .sm-chip {
+  border-radius: 24px; padding: 12px 24px;
+  border: 2px solid var(--wire);
+  color: var(--chalk-dim);
+  background: color-mix(in srgb, var(--wire) 35%, transparent);
+}
+.reveal .sm-chip.done { color: var(--go); border-color: color-mix(in srgb, var(--go) 50%, transparent); }
+.reveal .sm-chip.now {
+  color: var(--ink); background: var(--amber); border-color: var(--amber);
+  font-weight: 700;
+}
+.reveal .sm-chip.next { color: var(--signal); border-color: color-mix(in srgb, var(--signal) 50%, transparent); }
+.reveal .sm-arrow { color: var(--chalk-dim); font-size: 1.3em; }
+
+.reveal .unit-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--chalk);
+  background: color-mix(in srgb, var(--signal) 18%, transparent);
+  border: 2px solid var(--signal);
+  border-radius: 12px;
+  padding: 10px 26px;
+  margin-bottom: 18px;
+}
+.reveal .eyebrow.go   { color: var(--go); }
+.reveal .eyebrow.warn { color: var(--amber); }
+.reveal .eyebrow.preview { color: var(--amber); }
+
+.reveal code {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+  background: color-mix(in srgb, var(--wire) 50%, transparent); padding: 1px 8px; border-radius: 4px;
+  font-size: .9em; color: #FFB74D;
+}
+
+/* ---- split ---- */
+.reveal .demo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; width: 100%; }
+.reveal .demo.wide-left  { grid-template-columns: 1.15fr .85fr; }
+.reveal .demo.wide-right { grid-template-columns: .85fr 1.15fr; }
+.reveal .demo > * { min-width: 0; }
+.reveal .panel    { min-width: 0; }
+.reveal .side-label {
+  font: 600 .66em/1 var(--font-mono); color: var(--chalk-dim);
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; display: block;
+}
+
+/* ---- review grid ---- */
+.reveal .review-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: 32px; align-items: center; width: 100%; margin-top: 6px;
+}
+.reveal .review-prompt {
+  font-family: var(--font-display); font-size: 1.02em;
+  font-weight: 600; line-height: 1.35;
+}
+.reveal .review-prompt p { margin-bottom: .5em; }
+.reveal .concept-card {
+  background: color-mix(in srgb, var(--wire) 35%, transparent); border: 1px solid var(--wire);
+  border-radius: 12px; padding: 16px 18px; font-size: .85em; line-height: 1.45;
+}
+.reveal .concept-card .side-label { margin-bottom: 10px; }
+.reveal .concept-card .an { font-size: .95em; margin: 12px 0 0; }
+
+/* ---- callouts ---- */
+.reveal .try, .reveal .rule, .reveal .warnbox {
+  border-left: 6px solid var(--amber); background: color-mix(in srgb, var(--amber) 11%, transparent);
+  padding: 13px 18px; border-radius: 0 8px 8px 0; margin: 10px 0;
+  font-size: .82em; line-height: 1.4;
+}
+.reveal .rule    { border-left-color: var(--go);     background: color-mix(in srgb, var(--go) 11%, transparent); }
+.reveal .warnbox { border-left-color: var(--signal); background: color-mix(in srgb, var(--signal) 11%, transparent); }
+.reveal .try b, .reveal .rule b, .reveal .warnbox b {
+  display: block; font: 600 .68em/1 var(--font-mono); letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 5px; color: var(--amber);
+}
+.reveal .rule b    { color: var(--go); }
+.reveal .warnbox b { color: var(--signal); }
+
+.reveal .key-line {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.02em; line-height: 1.3;
+  padding: 16px 24px; border-left: 8px solid var(--amber);
+  background: color-mix(in srgb, var(--amber) 10%, transparent); border-radius: 0 10px 10px 0; margin: 12px 0;
+}
+.reveal .key-line.go { border-left-color: var(--go); background: color-mix(in srgb, var(--go) 10%, transparent); }
+.reveal .key-line.next { border-left-color: var(--signal); background: color-mix(in srgb, var(--signal) 10%, transparent); }
+
+/* ---- highlighter ---- */
+.reveal .mark {
+  background-image: linear-gradient(transparent 60%, color-mix(in srgb, var(--amber) 45%, transparent) 60%);
+  background-repeat: no-repeat; background-size: 0% 100%;
+  transition: background-size .5s ease; padding: 0 2px;
+}
+.reveal .fragment.visible .mark, .reveal .mark.on { background-size: 100% 100%; }
+.reveal .mark.hot { background-image: linear-gradient(transparent 60%, color-mix(in srgb, var(--signal) 40%, transparent) 60%); }
+
+/* ---- annotations ---- */
+.reveal .an { font: 700 .76em/1.35 var(--font-mono); display: flex; align-items: center; gap: 12px; margin: 10px 0; }
+.reveal .an .arw { color: var(--signal); font-size: 1.2em; }
+.reveal .an.t .arw { color: var(--go); }
+.reveal .an.w .arw { color: var(--amber); }
+
+/* ---- vocab ---- */
+.reveal .vocab { display: grid; gap: 14px; width: 100%; margin-top: 8px; }
+.reveal .vocab .row { display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: baseline; }
+.reveal .vocab .w { font: 700 .92em/1.2 var(--font-mono); color: var(--amber); }
+.reveal .vocab .d { font-size: .8em; line-height: 1.4; color: var(--chalk); }
+.reveal .vocab .tag {
+  display: inline-block; font: 600 .8em/1 var(--font-mono); color: var(--chalk-dim);
+  border: 1px solid var(--wire); border-radius: 20px; padding: 3px 10px; margin-left: 8px;
+}
+
+/* =====================================================================
+   DIVIDER SLIDES
+   ===================================================================== */
+.reveal section.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 22px 38px;
+}
+.reveal .overlay-dark {
+  background: color-mix(in srgb, var(--ink) 94%, transparent);
+  padding: 44px 56px;
+  border-radius: 22px;
+  width: 100%;
+  min-height: 72%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.reveal .cover-top { display: flex; align-items: center; gap: 20px; margin-bottom: 12px; }
+.reveal .cover-top .emoji-large { margin-bottom: 0; }
+.reveal .cover-top .unit-tag { margin-bottom: 0; }
+.reveal section.cover .emoji-large {
+  font-size: 3.6em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.reveal section.cover h1 {
+  font-size: 3.2em;
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin: 0 0 14px;
+}
+.reveal section.cover .subtitle {
+  font-size: 1.35em;
+  margin-top: 8px;
+  color: var(--go);
+}
+.reveal section.cover .lede {
+  font-size: 1.05em;
+  color: var(--chalk-dim);
+  margin-top: 18px;
+  line-height: 1.4;
+}
+
+.reveal .step-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.reveal .step-header .emoji-large {
+  font-size: 3.4em;
+  line-height: 1;
+  margin: 0;
+}
+.reveal .step-header .step-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 2.1em;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  line-height: 1;
+  padding-top: 6px;
+}
+.reveal section.cover h1.step-title {
+  font-size: 4.2em;
+  line-height: .95;
+  letter-spacing: -.04em;
+  margin: 0 0 12px;
+}
+
+.reveal .emoji-large { font-size: 3.1em; line-height: 1; margin-bottom: 10px; }
+.reveal .subtitle { font: 600 .8em/1.2 var(--font-body); color: var(--go); margin-top: 10px; }
+.reveal .lede { font-size: .86em; color: var(--chalk-dim); margin-top: 12px; }
+.reveal .clock { font: 600 .66em/1 var(--font-mono); color: var(--chalk-dim); letter-spacing: .08em; margin-top: 10px; }
+
+/* inline demo — used on the span divider */
+.reveal .inline-demo {
+  background: color-mix(in srgb, var(--go) 24%, transparent);
+  border-radius: 4px;
+  padding: 2px 10px;
+  border-bottom: 2px solid var(--go);
+  color: var(--chalk);
+}
+
+/* dashed "here is the box" visualization for browser previews */
+.reveal .demo-box {
+  border: 2px dashed #94A3B8;
+  border-radius: 8px;
+  padding: 4px 10px 4px;
+  margin: 8px 0;
+  position: relative;
+}
+.reveal .demo-box .box-tag {
+  position: absolute;
+  top: -11px; right: 8px;
+  font: 600 11px var(--font-mono);
+  color: #64748B;
+  background: #FFFFFF;
+  padding: 0 6px;
+  border-radius: 4px;
+  letter-spacing: .08em;
+}
+.reveal .demo-box.ghost {
+  border-color: #CBD5E1;
+  border-style: dashed;
+  opacity: .85;
+}
+.reveal .demo-box.ghost .box-tag { color: #94A3B8; }
+.reveal .box-note {
+  font: 600 .62em/1.3 var(--font-mono);
+  color: var(--chalk-dim);
+  margin-top: 6px;
+}
+
+/* compressed variant for slides with tall code panels + stacked callouts */
+.reveal section.fit-tight h2 { font-size: 1.35em; margin-bottom: .15em; }
+.reveal section.fit-tight .panel-body { font-size: .62em; line-height: 1.38; padding: 8px 0; }
+.reveal section.fit-tight .ln { padding: 1px 16px 1px 0; }
+.reveal section.fit-tight .panel.browser .panel-body { min-height: 0; padding: 12px 16px; }
+.reveal section.fit-tight .rule, .reveal section.fit-tight .warnbox, .reveal section.fit-tight .try {
+  font-size: .72em; padding: 9px 14px; margin: 6px 0; line-height: 1.35;
+}
+.reveal section.fit-tight .key-line { font-size: .82em; padding: 10px 18px; margin: 6px 0; }
+.reveal section.fit-tight .an { margin: 6px 0; }
+
+.reveal section.tight-code .panel-body { font-size: .7em; line-height: 1.4; }
+.reveal section.tight-code .ln { padding: 1px 16px 1px 0; }
+
+/* =====================================================================
+   GREEN-THEMED SLIDES
+   ===================================================================== */
+.reveal section.theme-green {
+  background:
+    radial-gradient(ellipse at 15% -10%, color-mix(in srgb, var(--go) 16%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 110%, color-mix(in srgb, var(--go) 8%, transparent) 0%, transparent 50%);
+}
+.reveal section.theme-green .eyebrow { color: var(--go); }
+.reveal section.theme-green .panel.code { border-top-color: var(--go); }
+.reveal section.theme-green .tabbar .tab.active { box-shadow: inset 0 2px 0 var(--go); }
+.reveal section.theme-green .an .arw { color: var(--go); }
+
+/* =====================================================================
+   GOAL CARD GRID
+   ===================================================================== */
+.reveal .goal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-top: 12px;
+}
+.reveal .goal-card {
+  background: color-mix(in srgb, var(--wire) 35%, transparent);
+  border: 1px solid var(--wire);
+  border-radius: 14px;
+  padding: 20px 22px 18px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.reveal .goal-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: var(--amber);
+}
+.reveal .goal-card.blue::before   { background: #569CD6; }
+.reveal .goal-card.green::before  { background: var(--go); }
+.reveal .goal-card.pink::before   { background: var(--signal); }
+.reveal .goal-card.amber::before  { background: var(--amber); }
+.reveal .goal-card .icon {
+  font-size: 1.5em;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.reveal .goal-card .term {
+  font: 700 1.45em/1 var(--font-mono);
+  color: var(--chalk);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+.reveal .goal-card .desc {
+  font-size: .82em;
+  line-height: 1.35;
+  color: var(--chalk-dim);
+  margin: 0;
+}
+.reveal .goal-card .tag {
+  display: inline-block;
+  font: 600 .68em/1 var(--font-mono);
+  color: var(--chalk-dim);
+  border: 1px solid var(--wire);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-top: 12px;
+}
+
+/* =====================================================================
+   PANEL CHROME
+   ===================================================================== */
+.reveal .panel {
+  display: flex; flex-direction: column;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--vs-line); background: var(--vs-bg);
+  font-family: var(--font-mono);
+  font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'calt' 0;
+  margin: 8px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,.35);
+}
+.reveal .tabbar {
+  display: flex; align-items: stretch;
+  background: var(--vs-chrome); border-bottom: 1px solid var(--vs-line);
+  font-size: .48em; min-height: 2.3em;
+}
+.reveal .tabbar .tab {
+  display: flex; align-items: center; gap: 7px;
+  padding: 0 16px; color: var(--vs-tab-dim); border-right: 1px solid var(--vs-line);
+}
+.reveal .tabbar .tab.active {
+  background: var(--vs-bg); color: var(--vs-tab-active);
+  box-shadow: inset 0 2px 0 var(--vs-focus);
+}
+.reveal .tabbar .tab .ico { width: 1.3em; height: 1.3em; display: block; flex: none; }
+
+.reveal .panel.code { border-top: 3px solid #569CD6; }
+.reveal .panel.code .tabbar .tab.active { box-shadow: inset 0 2px 0 var(--vs-focus); }
+
+.reveal .panel.browser { border-top: 3px solid var(--go); }
+.reveal .tabbar.browser-bar {
+  background: #2A2A2E; border-bottom: 1px solid #1E1E1E;
+  padding: 6px 12px; gap: 12px; min-height: 2.6em; align-items: center;
+}
+.reveal .tabbar.browser-bar .lights { display: flex; gap: 6px; }
+.reveal .tabbar.browser-bar .lights span { width: 11px; height: 11px; border-radius: 50%; background: #444; }
+.reveal .tabbar.browser-bar .lights span:nth-child(1) { background: #FF5F57; }
+.reveal .tabbar.browser-bar .lights span:nth-child(2) { background: #FEBC2E; }
+.reveal .tabbar.browser-bar .lights span:nth-child(3) { background: #28C840; }
+.reveal .tabbar.browser-bar .url {
+  flex: 1; background: #1A1A1E; border-radius: 6px;
+  padding: 5px 12px; color: #9AA6B8; font-size: .92em;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); letter-spacing: .01em;
+}
+.reveal .tabbar.browser-bar .url .lock { color: var(--go); font-size: .9em; }
+.reveal .tabbar.browser-bar .url .host { color: #7A8A9E; }
+.reveal .tabbar.browser-bar .url .file { color: #E7E7E7; }
+.reveal .tabbar.browser-bar .reload { color: #7A7A7A; padding: 0 6px; font-size: .95em; }
+
+.reveal .panel-body {
+  padding: 12px 0; line-height: 1.5; font-size: .8em;
+  color: var(--vs-text); overflow-x: auto;
+}
+.reveal .panel.browser .panel-body {
+  background: #FFFFFF; color: #1A1A2E;
+  font-family: var(--font-body); font-variant-ligatures: normal;
+  padding: 18px 22px; line-height: 1.5;
+  min-height: 160px;
+}
+.reveal .panel.browser .panel-body p   { color: #1A1A2E; margin: 6px 0; }
+.reveal .panel.browser .panel-body h2  { color: #1A1A2E; font-size: 1.2em; border: none; padding: 0; margin: 0 0 6px; font-family: var(--font-display); }
+
+.reveal .ln {
+  display: grid; grid-template-columns: 54px 1fr;
+  white-space: pre; padding: 2px 16px 2px 0;
+  border-left: 3px solid transparent;
+}
+.reveal .ln .num { color: var(--vs-tab-dim); text-align: right; padding-right: 16px; user-select: none; }
+
+.reveal .panel .tg  { color: var(--vs-tag); }
+.reveal .panel .nm  { color: var(--vs-tag-name); }
+.reveal .panel .at  { color: var(--vs-attr); }
+.reveal .panel .st  { color: var(--vs-string); }
+.reveal .panel .cm  { color: var(--vs-comment); font-style: italic; }
+.reveal .panel .nu  { color: var(--vs-number); }
+
+/* =====================================================================
+   DEVTOOLS PANEL (slides 28, 29 only)
+   ===================================================================== */
+.reveal .panel.devtools { border-top: 3px solid var(--amber); background: #202124; }
+.reveal .tabbar.devtools-bar {
+  background: #292a2d; border-bottom: 1px solid #3c4043;
+  padding: 0 8px; gap: 0; min-height: 2.4em; align-items: stretch;
+}
+.reveal .tabbar.devtools-bar .tab {
+  padding: 0 14px; font-size: .9em;
+  color: #9aa0a6; border-right: none;
+  text-transform: none; letter-spacing: normal;
+}
+.reveal .tabbar.devtools-bar .tab.active {
+  background: #202124; color: #e8eaed;
+  box-shadow: inset 0 -2px 0 #8ab4f8;
+}
+.reveal .panel-body.dom-tree {
+  background: #202124;
+  color: #e8eaed;
+  font-family: var(--font-mono);
+  font-size: .76em;
+  line-height: 1.7;
+  padding: 12px 6px;
+  overflow-x: auto;
+}
+.reveal .dom-line {
+  display: block;
+  white-space: pre;
+  padding: 2px 14px;
+  border-radius: 3px;
+  border-left: 3px solid transparent;
+}
+.reveal .dom-line.selected {
+  background: rgba(138,180,248,.15);
+  border-left-color: #8ab4f8;
+}
+.reveal .dom-line .arrow { color: #80868b; font-size: .85em; margin-right: 6px; }
+.reveal .dom-line .tag { color: #5db0d7; }
+.reveal .dom-line .attr-name { color: #e8eaed; }
+.reveal .dom-line .attr-value { color: #ce9178; }
+.reveal .dom-line .content { color: #e8eaed; }
+.reveal .dom-line.i0 { padding-left: 14px; }
+.reveal .dom-line.i1 { padding-left: 32px; }
+.reveal .dom-line.i2 { padding-left: 50px; }
+.reveal .dom-line.i3 { padding-left: 68px; }
+
+/* =====================================================================
+   FRAGMENT REVEAL — bullet highlight
+   ===================================================================== */
+.reveal .an.fragment,
+.reveal .vocab .row.fragment,
+.reveal li.fragment {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.reveal .an.fragment.visible,
+.reveal .vocab .row.fragment.visible,
+.reveal li.fragment.visible {
+  opacity: 1;
+  transform: translateX(0);
+  animation: bulletPulse 1.5s cubic-bezier(.2, .8, .3, 1) .1s;
+  border-radius: 8px;
+}
+@keyframes bulletPulse {
+  0% {
+    background: color-mix(in srgb, var(--amber) 32%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--amber) 35%, transparent);
+    transform: translateX(4px) scale(1.01);
+  }
+  50% {
+    background: color-mix(in srgb, var(--amber) 14%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--amber) 18%, transparent);
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    background: transparent;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--amber) 0%, transparent);
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ---- code lines, with a gutter and a moving pointer ---- */
+.reveal .ln {
+  display: grid; grid-template-columns: 54px 1fr;
+  white-space: pre; padding: 2px 16px 2px 0;
+  border-left: 3px solid transparent;
+}
+.reveal .ln .num {
+  color: var(--vs-tab-dim); text-align: right; padding-right: 16px; user-select: none;
+}
+.reveal .ln.live {
+  background: color-mix(in srgb, var(--signal) 18%, transparent);
+  border-left-color: var(--signal);
+}
+.reveal .ln.live .num { color: var(--signal); font-weight: 700; }
+.reveal .ln.live .num::after { content: " \25B8"; }
+
+
+/* ---- syntax colours inside code: VS Code's Dark+, one mark per kind of word, from the shared
+   highlighter (app/core/code_theme.py; docs/decisions/2026-11-16-code-uses-the-vs-code-theme.md).
+   Hand-made decks wrote .kw for control words and .bi for keywords: both still read. ---- */
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .kw { color: var(--vs-keyword); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .ct { color: var(--vs-control); }
+.reveal .panel .bi { color: var(--vs-keyword); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .fn { color: var(--vs-func); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .st { color: var(--vs-string); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .nu { color: var(--vs-number); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .va { color: var(--vs-var); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .ty { color: var(--vs-type); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .cm { color: var(--vs-comment); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .tg { color: var(--vs-tag); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .nm { color: var(--vs-tag-name); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .at { color: var(--vs-attr); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .sel { color: var(--vs-selector); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .vl { color: var(--vs-value); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .gt, .reveal .ln .num { color: var(--vs-gutter); }
+.reveal :is(.panel, pre.code-steps, pre.board-starter, .code-line) .bl { color: var(--vs-blank); border: 1px dashed var(--vs-blank); border-radius: 4px; padding: 0 .2em; }
+/* ═══ APCSP · p5.js additions — everything above is the CS100 house style ═══ */
+
+/* new lines in a code-along: pink, marked + instead of a number */
+.reveal .ln.new { background: color-mix(in srgb, var(--signal) 16%, transparent); border-left-color: var(--signal); }
+.reveal .ln.new .num { color: var(--signal); font-weight: 700; }
+
+/* the live p5 sketch, framed as a browser so "your screen should show this" reads instantly */
+.reveal .panel.browser .panel-body.sketch {
+  background: var(--ink); padding: 0; min-height: 0;
+  display: grid; place-items: center;
+}
+.reveal .canvas-frame {
+  width: 100%; max-width: 440px; aspect-ratio: 1 / 1; margin: 0 auto;
+  border: 2px solid var(--wire); border-radius: 10px; overflow: hidden; background: var(--ink);
+}
+.reveal .demo-frame { width: 100%; height: 100%; display: block; border: 0; }
+.reveal .demo-code { display: none; }
+.reveal .replay {
+  font: 600 .5em/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+  margin-top: 8px; padding: 8px 14px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--wire); background: color-mix(in srgb, var(--wire) 40%, transparent); color: var(--chalk-dim);
+}
+.reveal .replay:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+/* grid children must not take the code panel's min-content width (its longest
+   white-space:pre line) — without this, every right-hand column gets crushed */
+.reveal .demo > *, .reveal .review-grid > * { min-width: 0; }
+
+/* teaching diagrams */
+.reveal .anchor-svg { width: 100%; height: auto; max-height: 440px; display: block; }
+.reveal .demo .anchor-svg { max-height: 300px; }
+
+/* review answer: the remainder number line */
+.reveal .numline { display: flex; gap: 10px; margin: 14px 0 6px; }
+.reveal .numline span {
+  font: 700 1.05em/1 var(--font-mono); width: 74px; padding: 16px 0; text-align: center;
+  border-radius: 10px; background: color-mix(in srgb, var(--go) 18%, transparent); color: var(--go);
+  border: 2px solid color-mix(in srgb, var(--go) 55%, transparent);
+}
+.reveal .numline span.no { background: none; color: var(--chalk-dim); border-color: var(--wire); text-decoration: line-through; }
+
+/* error-kinds strip on the Do Now */
+.reveal .kinds { width: 100%; border-collapse: collapse; font-size: .62em; margin-top: 8px; }
+.reveal .kinds td { padding: 6px 10px; border-bottom: 1px solid var(--wire); }
+.reveal .kinds .k { font-family: var(--font-mono); color: var(--chalk-dim); white-space: nowrap; width: 1%; }
+
+/* exam-notation columns */
+.reveal .notation { font: 600 .9em/1.6 var(--font-mono); white-space: nowrap; }
+
+/* the question slide: the question is the only thing on screen */
+.reveal section.ask h2 { font-size: 2.05em; line-height: 1.12; max-width: 92%; }
+.reveal section.ask p.follow { font-size: .9em; color: var(--chalk-dim); margin-top: .6em; }
+
+/* ═══ PART TAG: pinned to the physical screen's corner, outside the slide ═══
+   A grey tag with a dot (class marks are quiet, docs/decisions/2026-11-13-class-marks-are-quiet.md;
+   SL1 #2823): the dot says the teacher's move, the word says it too, so colour is never alone:
+     Teach  ink    (I explain something new)
+     Ask    amber  (I ask, they think: questions AND their answers)
+     Code   green  (they type)
+   It lives on the viewport, not the section, so it takes no space from any slide.
+   Covers carry no tag. Set by data-mode on each <section>. */
+.reveal-viewport::before {
+  content: none; position: fixed; left: 12px; top: 12px; z-index: 30; pointer-events: none;
+  padding: 4px 12px 4px 26px; border-radius: 6px; font: 600 13px/1.4 var(--font-body);
+  color: var(--tag-text); background-color: var(--tag);
+  background-image: radial-gradient(circle at 13px 50%, var(--tag-dot, var(--signal)) 4px, transparent 5px);
+}
+.reveal-viewport[data-mode="teach"]::before { content: "Teach"; --tag-dot: var(--signal); }
+.reveal-viewport[data-mode="ask"]::before   { content: "Ask"; --tag-dot: var(--amber); }
+.reveal-viewport[data-mode="code"]::before  { content: "Code"; --tag-dot: var(--go); }
+@media print { .reveal-viewport::before { content: none; } }
+
+/* code-along: code needs the width, the preview is a confirmation */
+.reveal section[data-mode="code"] .demo.wide-left { grid-template-columns: 1.22fr .78fr; gap: 22px; }
+.reveal section[data-mode="code"] .canvas-frame { max-width: 360px; }
+.reveal section[data-mode="code"] .panel-body { line-height: 1.32; padding: 7px 0; }
+.reveal section[data-mode="code"] .rule, .reveal section[data-mode="code"] .warnbox,
+.reveal section[data-mode="code"] .try { font-size: .64em; padding: 10px 14px; margin: 8px 0; }
+
+/* title: text left, the finished sketch running right */
+.reveal .overlay-dark.hero-cover {
+  box-sizing: border-box;            /* the house overlay is width:100% PLUS padding */
+  display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+  padding: 40px 48px;
+}
+.reveal .hero-cover .canvas-frame { width: 350px; margin: 0; }
+.reveal section.cover .hero-cover h1 { font-size: 2.7em; white-space: nowrap; }
+.reveal section.cover .hero-cover .subtitle { font-size: .92em; line-height: 1.32; max-width: 22em; }
+
+/* covers: reveal writes display:block inline on the active slide, which defeats the
+   house flex centring — only a .present rule with !important can win */
+.reveal .slides section.cover.present {
+  display: flex !important; flex-direction: column; justify-content: center;
+}
+.reveal .lede code, .reveal .subtitle code { white-space: nowrap; }
+
+/* ═══ PROJECTOR LEGIBILITY PASS — nothing a student reads falls under 24px ═══ */
+.reveal .try, .reveal .stop, .reveal .rule, .reveal .warnbox, .reveal .answer,
+.reveal section[data-mode="code"] .rule, .reveal section[data-mode="code"] .warnbox,
+.reveal section[data-mode="code"] .try { font-size: .74em; line-height: 1.32; }
+.reveal .try b, .reveal .stop b, .reveal .rule b, .reveal .warnbox b, .reveal .answer b { font-size: .9em; }
+.reveal .kinds { font-size: .74em; }
+.reveal .kinds td { padding: 7px 12px; }
+.reveal .replay { font-size: .66em; padding: 9px 16px; }
+.reveal .tabbar { font-size: .62em; }
+
+/* ── REVIEW cover ── */
+.reveal section.review-cover { align-items: center; text-align: center; }
+.reveal .review-topics { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+.reveal .review-topics .rt {
+  display: inline-flex; align-items: center; gap: 14px;
+  font: 600 .82em/1 var(--font-body); color: var(--chalk);
+  padding: 16px 24px; border-radius: 14px;
+  background: color-mix(in srgb, var(--wire) 45%, transparent); border: 2px solid var(--wire);
+}
+.reveal .review-topics .rt b {
+  font: 700 .9em/1 var(--font-mono); color: var(--ink); background: var(--amber);
+  width: 1.6em; height: 1.6em; border-radius: 50%; display: grid; place-items: center;
+}
+.reveal .review-topics code { font-size: .95em; }
+
+/* ── GOALS: two full-height cards with something concrete in each ── */
+.reveal .goal-big { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 18px; }
+.reveal .goal-big .gb {
+  border-radius: 18px; padding: 26px 30px 28px; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--wire) 55%, transparent), color-mix(in srgb, var(--ink-2) 55%, transparent));
+  border: 2px solid var(--wire);
+}
+.reveal .goal-big .gb::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 8px; }
+.reveal .goal-big .gb.pink::before { background: var(--signal); }
+.reveal .goal-big .gb.green::before { background: var(--go); }
+.reveal .goal-big .ico { font-size: 1.9em; line-height: 1; }
+.reveal .goal-big .term { display: block; font: 700 1.5em/1.1 var(--font-mono); margin: 12px 0 10px; color: var(--chalk); }
+.reveal .goal-big .gb p { font-size: .82em; line-height: 1.35; color: var(--chalk-dim); margin: 0 0 16px; }
+.reveal .goal-big .chip {
+  display: block; font: 600 .7em/1.4 var(--font-mono); padding: 12px 16px; border-radius: 10px;
+  background: var(--vs-bg); border: 1px solid var(--vs-line); color: var(--vs-text); white-space: nowrap;
+}
+.reveal .goal-big .chip .kw { color: var(--vs-control); }
+.reveal .goal-big .tests { display: grid; gap: 10px; }
+.reveal .goal-big .tests div {
+  display: flex; align-items: center; gap: 14px; font-size: .74em; color: var(--chalk);
+  padding: 10px 16px; border-radius: 10px; background: color-mix(in srgb, var(--ink) 60%, transparent);
+}
+.reveal .goal-big .dot { width: 26px; height: 26px; border-radius: 50%; flex: none; }
+
+/* ── PREDICT: question left, the situation drawn right ── */
+.reveal .predict { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.reveal .predict h2 { font-size: 1.62em; line-height: 1.14; margin: 0 0 22px; }
+
+/* ── ON THE EXAM: translation rows, editor on the left, printed sheet on the right ── */
+.reveal .xlate { display: grid; gap: 16px; margin-top: 10px; }
+.reveal .xhead, .reveal .xrow { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; }
+.reveal .xhead span { font: 700 .7em/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--chalk-dim); }
+.reveal .xrow .js, .reveal .xrow .ex {
+  font: 600 .92em/1 var(--font-mono); padding: 20px 24px; border-radius: 12px; white-space: nowrap;
+}
+.reveal .xrow .js { background: var(--vs-bg); color: var(--vs-text); border: 2px solid var(--vs-line); }
+.reveal .xrow .ex { background: #F3EFE4; color: #1B2333; border: 2px solid #D8CFB8;
+                    box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+.reveal .xrow .arr { text-align: center; font-size: 1.3em; color: var(--amber); }
+.reveal .xrow mark { background: color-mix(in srgb, var(--amber) 35%, transparent); color: inherit; padding: 0 6px; border-radius: 6px; }
+.reveal .xrow .ex mark { background: color-mix(in srgb, var(--signal) 22%, transparent); }
+
+/* ── SAY THESE BACK: four cards, the definition revealed after they say it ── */
+.reveal .say { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; }
+.reveal .say .card {
+  border-radius: 16px; padding: 22px 26px; min-height: 172px;
+  background: color-mix(in srgb, var(--wire) 40%, transparent); border: 2px solid var(--wire); border-top: 7px solid var(--amber);
+}
+.reveal .say .card:nth-child(2) { border-top-color: var(--signal); }
+.reveal .say .card:nth-child(3) { border-top-color: #569CD6; }
+.reveal .say .card:nth-child(4) { border-top-color: var(--go); }
+.reveal .say .w { display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+                  font: 700 1.12em/1.1 var(--font-mono); color: var(--chalk); }
+.reveal .say .tag2 { font: 700 .62em/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+                     color: var(--amber); border: 2px solid var(--amber); border-radius: 999px; padding: 7px 12px; white-space: nowrap; }
+.reveal .say .d { font-size: .8em; line-height: 1.32; color: var(--chalk-dim); margin-top: 14px; }
+
+/* ── RECALL: the finished sketch, and the four pieces they already know ── */
+.reveal .recall-wrap { display: grid; grid-template-columns: 430px 1fr; gap: 30px; align-items: center; }
+.reveal .recall-wrap .canvas-frame { width: 430px; margin: 4px 0 0; }
+.reveal .recall { display: grid; gap: 13px; }
+.reveal .recall .q {
+  display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start;
+  padding: 13px 18px; border-radius: 12px; background: color-mix(in srgb, var(--wire) 40%, transparent); border: 2px solid var(--wire);
+}
+.reveal .recall .n {
+  font: 700 .74em/1 var(--font-mono); background: var(--amber); color: var(--ink);
+  width: 1.75em; height: 1.75em; border-radius: 50%; display: grid; place-items: center;
+}
+.reveal .recall .t { font-size: .74em; line-height: 1.28; color: var(--chalk); }
+.reveal .recall .a {
+  display: inline-block; margin-top: 8px; font: 600 .7em/1.2 var(--font-mono);
+  padding: 8px 13px; border-radius: 8px; background: var(--vs-bg); border: 1px solid var(--vs-line); color: var(--vs-number);
+}
+.reveal .recall .a .why { font-family: var(--font-body); color: var(--chalk-dim); font-weight: 400; margin-left: 10px; }
+
+.reveal .try b code, .reveal .stop b code, .reveal .rule b code, .reveal .warnbox b code { font-size: 1em; }
+.reveal section[data-mode="code"] .canvas-frame { width: min(100%, 310px); }
+
+
+.reveal section[data-mode="code"] .panel-body { line-height: 1.25; }
+
+/* recall: anchors drawn over the live sketch, in its own 400x400 coordinates */
+.reveal .canvas-frame { position: relative; }
+.reveal .anchor-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.reveal .predict { grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 8px; }
+.reveal .predict .anchor-svg { max-height: 430px; }
+.reveal .zone-wide .anchor-svg { max-height: 360px; margin: 0 auto; }
+.reveal .code-line {
+  font: 600 .82em/1.3 var(--font-mono); color: var(--vs-text); background: var(--vs-bg);
+  border: 1px solid var(--vs-line); border-radius: 10px; padding: 12px 20px; margin: 10px 0 4px; white-space: nowrap;
+}
+
+
+/* ═══ L7A additions ═══ */
+.reveal .hw-list { gap: 12px; }
+.reveal .hw-list .row { grid-template-columns: 150px 1fr; }
+.reveal .hw-list code { white-space: nowrap; }
+/* covers: the unit/lesson line was 24px — read from the back of the room */
+.reveal section.cover .eyebrow { font-size: 1.05em; letter-spacing: .12em; margin-bottom: .35em; }
+/* where-it-shows-up: four live sketches in a row */
+.reveal .uses { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 10px 0 6px; }
+.reveal .uses .canvas-frame { width: 100%; max-width: none; }
+.reveal .use-cap { display: block; text-align: center; margin-top: 8px;
+  font: 600 .7em/1.2 var(--font-mono); color: var(--chalk-dim); letter-spacing: .06em; }
+/* the edge-test table: predictions revealed one row at a time */
+.reveal .edge-tests { width: 100%; border-collapse: collapse; font-size: .74em; margin: 6px 0 4px; }
+.reveal .edge-tests th { font: 700 .82em/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--chalk-dim); text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--wire); }
+.reveal .edge-tests td { padding: 9px 12px; border-bottom: 1px solid var(--wire); }
+.reveal .edge-tests td.pt { font: 700 1em/1 var(--font-mono); color: var(--amber); white-space: nowrap; }
+.reveal .edge-tests td.yes { color: var(--go); font-weight: 600; }
+.reveal .edge-tests td.no  { color: var(--signal); font-weight: 600; }
+.reveal .edge-tests tr.edge td { background: color-mix(in srgb, var(--amber) 8%, transparent); }
+.reveal .code-line.pre { white-space: pre; }
+</style>
+<style id="animation-kit">
+/* ── animation kit (the app's lesson studio) ──────────────────────────────
+   code-steps   <pre class="code-steps" data-steps="1|2-3|4">  each Next lights the next lines
+   watch-run    <div class="watch-run" data-frames='[{"i":0},{"i":1}]'>  variable boxes, one frame per Next
+   countdown    <div class="countdown" data-seconds="120"></div>  starts when the slide shows
+   type-on      <pre class="type-on">  the code types itself in when the slide shows
+   Plus reveal.js's own: class="fragment fade-up | zoom-in | highlight-current-blue". */
+.reveal pre.code-steps, .reveal pre.type-on { font: .62em/1.5 var(--font-mono); background: var(--vs-bg); color: var(--vs-text);
+  padding: 14px 18px; border-radius: 10px; text-align: left; white-space: pre; box-shadow: none; width: 100%; }
+.reveal pre.code-steps .ln { display: block; padding: 0 6px; border-radius: 4px; transition: background .25s, opacity .25s; }
+/* Unlit lines stay readable: .6 keeps Light+ and Dark+ text over 4.5:1 (SL3 #2825; .38 was about 2.7:1). */
+.reveal pre.code-steps.stepping .ln { opacity: .6; }
+.reveal pre.code-steps.stepping .ln.on { opacity: 1; background: color-mix(in srgb, var(--amber) 22%, transparent); }
+.reveal .watch-run { display: flex; flex-wrap: wrap; gap: 14px; margin-top: .4em; }
+.reveal .watch-run .box { min-width: 120px; padding: 10px 14px; border: 2px solid var(--wire); border-radius: 10px; background: var(--ink-2); }
+.reveal .watch-run .box b { display: block; font: 600 .5em var(--font-mono); color: var(--chalk-dim); }
+.reveal .watch-run .box span { display: block; font: 700 1em var(--font-mono); color: var(--chalk); }
+.reveal .watch-run .box.changed { border-color: var(--go); animation: kit-pulse .45s ease; }
+@keyframes kit-pulse { 40% { transform: scale(1.08); } }
+.reveal .countdown { font: 700 2.2em var(--font-mono); color: var(--amber); letter-spacing: .04em; }
+.reveal .countdown.done { color: var(--signal); animation: kit-pulse .6s ease 3; }
+/* flow       <div class="flow"><div class="step fragment">Input</div><div class="step fragment">Check</div>...</div>
+              boxes joined by arrows, each appearing on Next (a flowchart, a pipeline)
+   timeline   <ol class="timeline"><li class="fragment"><b>1969</b> ARPANET</li>...</ol>
+   flip       <div class="flip"><div class="front">Question</div><div class="back">Answer</div></div>  click to turn */
+.reveal .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-top: .4em; }
+.reveal .flow .step { padding: .35em .7em; border: 2px solid var(--wire); border-radius: 12px; background: var(--ink-2);
+  font-size: .7em; font-weight: 600; }
+.reveal .flow .step + .step { margin-left: 46px; position: relative; }
+.reveal .flow .step + .step::before { content: ""; position: absolute; left: -40px; top: 50%; width: 32px; height: 3px;
+  background: var(--amber); }
+.reveal .flow .step + .step::after { content: ""; position: absolute; left: -12px; top: calc(50% - 6px);
+  border: 7.5px solid transparent; border-left-color: var(--amber); }
+.reveal .flow .step.decision { border-color: var(--signal); border-radius: 4px; transform: none; }
+.reveal ol.timeline { list-style: none; margin: .4em 0 0; padding: 0 0 0 1.2em; border-left: 3px solid var(--wire); font-size: .7em; }
+.reveal ol.timeline li { position: relative; margin: 0 0 .5em; }
+.reveal ol.timeline li::before { content: ""; position: absolute; left: -1.62em; top: .45em; width: .7em; height: .7em;
+  border-radius: 50%; background: var(--amber); }
+.reveal ol.timeline b { color: var(--amber); margin-right: .4em; font-family: var(--font-mono); }
+.reveal .flip { perspective: 900px; width: 100%; max-width: 640px; min-height: 4em; cursor: pointer; }
+.reveal .flip > div { padding: .6em .8em; border-radius: 14px; border: 2px solid var(--wire); background: var(--ink-2);
+  backface-visibility: hidden; transition: transform .5s ease; }
+.reveal .flip .back { transform: rotateY(180deg); border-color: var(--go); }
+.reveal .flip { display: grid; } .reveal .flip > div { grid-area: 1 / 1; margin: 0; }
+.reveal .flip.turned .front { transform: rotateY(-180deg); }
+.reveal .flip.turned .back { transform: rotateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal .watch-run .box.changed, .reveal .countdown.done { animation: none; }
+  .reveal .flip > div { transition: none; } }
+</style>
+<style id="lessonkit">
+/* lessonkit: what the kit's blocks add to the house style (docs/plan-lesson-kits.md) */
+.reveal .ln.new { background: color-mix(in srgb, var(--go) 14%, transparent); border-left-color: var(--go); }
+.reveal .ln.new .num { color: var(--go); font-weight: 700; }
+.reveal section.long-code .panel-body { font-size: .6em; line-height: 1.2; padding: 4px 0; }
+.reveal section.long-code h2 { font-size: 1.3em; margin-bottom: .2em; }
+.reveal section.mid-code .panel-body { font-size: .7em; line-height: 1.25; padding: 6px 0; }
+.reveal section.mid-code .ln, .reveal section.long-code .ln { padding: 0 16px 0 0; }
+.reveal section.long-code .ln { padding: 0 16px 0 0; }
+.reveal pre.code-steps { font-size: .68em; line-height: 1.28; padding: 10px 16px; }
+.reveal .watch-run .box b { font-size: .68em; }
+.reveal .choices { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; font-size: .8em; }
+.reveal .choices li { display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: center;
+  padding: 8px 14px; border-radius: 10px; background: color-mix(in srgb, var(--wire) 40%, transparent); border: 2px solid var(--wire); }
+.reveal .choices li b { font-family: var(--font-mono); color: var(--amber); text-align: center; }
+.reveal .choices li.right { border-color: var(--go); background: color-mix(in srgb, var(--go) 14%, transparent); }
+.reveal .printed { font: 600 .78em/1.5 var(--font-mono); background: #0B1220; color: var(--go); border-radius: 10px;
+  padding: 12px 18px; white-space: pre; border: 2px solid var(--wire); }
+.reveal .kit-table { border-collapse: collapse; font: 600 .74em/1.3 var(--font-mono); margin-top: 10px; }
+.reveal .kit-table th, .reveal .kit-table td { border: 2px solid var(--wire); padding: 8px 18px; text-align: left; }
+.reveal .kit-table th { color: var(--chalk-dim); }
+.reveal .points { font-size: .82em; line-height: 1.4; margin: 10px 0 0; }
+.reveal .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: start; }
+.reveal .split > * { min-width: 0; }
+/* The cover: the template keeps its title on one line, sized for short titles. Beside a live
+   sketch a long one ("Parameters and Arguments") ran off both sides, so here it wraps.
+   The selector matches the template's own rule, so this one (later) wins. */
+.reveal .hero-cover > div { min-width: 0; }
+.reveal section.cover .hero-cover h1 { white-space: normal; text-wrap: balance; }
+/* The goal under a subtitle on the title cover (LKA3: the Teach cover folded in). */
+.reveal section.cover .hero-cover .goal-line { font-size: .62em; color: var(--chalk-dim); margin-top: 14px; }
+/* A rule's line beside its code or diagram (LKA3: no words-only rule). */
+.reveal .kit-rule { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+.reveal .kit-rule > * { min-width: 0; }
+/* The slide tools (IT1): the pieces as both decks draw them, in the deck theme's own names only. A
+   student's own screen makes them live (static/tools/tools.css); the teacher's shows them as they are. */
+.reveal .st-tool { margin-top: 14px; font-size: .62em; line-height: 1.3; }
+.reveal .st-tool ol, .reveal .st-tool ul { list-style: none; margin: 0; padding: 0; }
+.reveal .st-card { display: flex; align-items: center; min-height: 56px; padding: 8px 16px; border-radius: 8px;
+  border: 2px solid var(--wire); background: color-mix(in srgb, var(--wire) 40%, transparent); color: var(--chalk); }
+.reveal .st-pool { display: flex; flex-wrap: wrap; gap: 10px; min-height: 64px; }
+.reveal .st-match { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.reveal .st-match > * { min-width: 0; }
+.reveal .st-terms { display: grid; gap: 10px; }
+.reveal .st-term { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 12px; align-items: center; }
+.reveal .st-term .st-word { font-weight: 600; }
+.reveal .st-slot { display: flex; align-items: center; min-height: 56px; border-radius: 8px; border: 2px dashed var(--wire); }
+.reveal .st-match .st-pool { flex-direction: column; flex-wrap: nowrap; }
+.reveal .st-bins { display: grid; grid-template-columns: repeat(var(--st-n, 2), minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.reveal .st-bins[data-n="3"] { --st-n: 3; } .reveal .st-bins[data-n="4"] { --st-n: 4; }
+.reveal .st-bin { min-height: 150px; padding: 10px; border-radius: 8px; border: 2px dashed var(--wire); }
+.reveal .st-bin h3 { margin: 0 0 8px; font-size: 1em; color: var(--chalk-dim); text-transform: none; }
+.reveal .st-in { display: flex; flex-wrap: wrap; gap: 8px; }
+.reveal .st-list { display: grid; gap: 8px; counter-reset: st; }
+.reveal .st-list .st-card { counter-increment: st; }
+.reveal .st-list .st-card::before { content: counter(st); min-width: 1.6em; margin-right: 12px; color: var(--chalk-dim);
+  font-family: var(--font-mono); }
+.reveal .st-key-match { display: grid; gap: 10px; font-size: .7em; }
+.reveal .st-key-match li { display: grid; grid-template-columns: minmax(0, .8fr) auto minmax(0, 1.2fr); gap: 14px;
+  align-items: center; padding: 8px 14px; border-radius: 8px; border: 2px solid var(--go);
+  background: color-mix(in srgb, var(--go) 14%, transparent); }
+.reveal .st-key .st-card { border-color: var(--go); }
+/* The picture tools (IT2): a picture as tall as the slide allows, its spots and pins in % of it (the
+   frame shrinks to the picture, so a % is the picture's own). The labels beside it. */
+.reveal .st-label:not(.st-key) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15em); gap: 24px; align-items: start; }
+.reveal .st-pic { position: relative; display: block; width: fit-content; max-width: 100%; margin: 0 auto; line-height: 0; }
+.reveal .st-pic img { display: block; max-width: 100%; max-height: 52vh; width: auto; height: auto; margin: 0;
+  border-radius: 8px; border: 1px solid var(--wire); background: color-mix(in srgb, var(--wire) 25%, transparent); }
+.reveal .st-spots { position: absolute; inset: 0; line-height: 1.3; }
+.reveal .st-spot { position: absolute; display: flex; align-items: center; gap: 6px; margin: -26px 0 0 -26px; }
+.reveal .st-num { display: inline-grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--signal); color: var(--on-signal); font-weight: 700; font-family: var(--font-mono); }
+.reveal .st-spot .st-slot { min-width: 0; min-height: 0; border: 0; }
+.reveal .st-spot .st-card { min-height: 52px; padding: 4px 12px; white-space: nowrap; font-size: .9em; }
+.reveal .st-label .st-pool { flex-direction: column; flex-wrap: nowrap; }
+.reveal .st-area { position: absolute; border-radius: 50%;
+  border: 3px solid var(--go); background: color-mix(in srgb, var(--go) 18%, transparent); }
+
+.reveal .st-numline { padding: 34px 28px 8px; }
+.reveal .st-line { position: relative; height: 96px; }
+.reveal .st-track { position: absolute; left: 0; right: 0; top: 40px; height: 4px; border-radius: 2px; background: var(--chalk-dim); }
+.reveal .st-ticks { position: absolute; inset: 0; }
+.reveal .st-ticks li { position: absolute; top: 30px; width: 0; height: 24px; border-left: 2px solid var(--chalk-dim); }
+.reveal .st-ticks li span { position: absolute; top: 30px; left: -3em; width: 6em; text-align: center; white-space: nowrap; color: var(--chalk);
+  font-family: var(--font-mono); }
+.reveal .st-mark { position: absolute; top: 18px; width: 48px; height: 48px; margin-left: -24px; border-radius: 50%;
+  border: 3px solid var(--signal); background: color-mix(in srgb, var(--signal) 18%, transparent); }
+.reveal .st-key-mark { border-color: var(--go); background: color-mix(in srgb, var(--go) 22%, transparent); }
+.reveal .st-read { min-height: 1.4em; margin: 6px 0 0; font-family: var(--font-mono); color: var(--chalk); }
+.reveal .st-graph { display: flex; justify-content: center; }
+.reveal .st-grid { width: auto; max-width: 100%; height: 470px; overflow: visible; }
+.reveal .st-grid .st-gl { stroke: var(--wire); stroke-width: 1.5; }
+.reveal .st-grid .st-ax { stroke: var(--chalk-dim); stroke-width: 3; }
+.reveal .st-grid .st-gn { fill: var(--chalk-dim); font-size: 18px; font-family: var(--font-mono); }
+.reveal .st-grid .st-dot { fill: var(--signal); stroke: var(--chalk); stroke-width: 2; }
+.reveal .st-key .st-grid .st-dot { fill: var(--go); }
+.reveal .st-grid .st-join { fill: none; stroke: var(--go); stroke-width: 3; }
+.reveal .st-trace .st-run { display: grid; gap: 12px; align-content: start; }
+.reveal .st-trace .panel .ln.st-now { background: color-mix(in srgb, var(--signal) 16%, transparent);
+  box-shadow: inset 4px 0 0 var(--signal); }
+.reveal .st-at { margin: 0; color: var(--chalk-dim); font-family: var(--font-mono); }
+.reveal .st-vars { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.reveal .st-var { display: flex; gap: 8px; align-items: baseline; padding: 6px 12px; border-radius: 8px; border: 2px solid var(--wire); }
+.reveal .st-var dt { color: var(--chalk-dim); font-family: var(--font-mono); }
+.reveal .st-var dd { margin: 0; font-family: var(--font-mono); font-weight: 600; color: var(--chalk); }
+.reveal .st-stops { display: grid; gap: 8px; }
+.reveal .st-stop { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px;
+  padding: 4px 6px 4px 14px; border-radius: 8px; border: 2px dashed var(--wire); }
+.reveal .st-stop .st-field { min-width: 5em; min-height: 40px; border-bottom: 2px solid var(--chalk-dim); }
+.reveal .st-key .st-stop { border: 2px solid var(--go); }
+.reveal .st-key .st-stop b { font-family: var(--font-mono); color: var(--chalk); padding-right: 10px; }
+.reveal .st-sim { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.reveal .st-stage { height: 280px; /* the Send under it stays above the dock on a 768px screen */ border-radius: 8px; border: 2px solid var(--wire); overflow: hidden; }
+.reveal .st-stage canvas { display: block; width: 100% !important; height: 100% !important; }
+.reveal .st-sliders { display: grid; gap: 14px; }
+.reveal .st-slider { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
+.reveal .st-slider em { font-style: normal; font-size: .8em; color: var(--chalk-dim); margin-left: 8px; }
+.reveal .st-slider.st-ask > span { font-weight: 600; }
+.reveal .st-slider input { grid-column: 1 / -1; width: 100%; min-height: 44px; accent-color: var(--signal); }
+.reveal .st-slider output { font-family: var(--font-mono); color: var(--chalk); }
+.reveal .st-key .st-slider.st-ask input { accent-color: var(--go); }
+.reveal .st-sim .st-read { grid-column: 1 / -1; }
+
+/* lessondraw: kit v2's drawn slides (docs/plan-lesson-kits.md); nothing here moves */
+.reveal section .fragment.fragment, .reveal section .fragment.fragment.visible,
+.reveal section .an.fragment.visible, .reveal section li.fragment.visible { transition: none; transform: none; animation: none; }
+.reveal .kit-split { display: grid; grid-template-columns: 1.15fr .85fr; gap: 26px; align-items: start; width: 100%; }
+.reveal .kit-split > * { min-width: 0; }
+.reveal .kit-split .an { font: 600 .7em/1.3 var(--font-body); margin: 6px 0; display: block; }
+.reveal .kit-split .an .arw { margin-right: 10px; }
+.reveal .kit-split .an code { font-size: 1em; }
+.reveal .kit-split .key-line { font-size: .86em; padding: 12px 18px; margin: 10px 0 0; }
+.reveal .kit-split .warnbox, .reveal .kit-split .rule { font-size: .7em; padding: 10px 14px; margin: 10px 0 0; }
+.reveal .kit-split .warnbox b, .reveal .kit-split .rule b { font-size: 24px; }
+.reveal section.cover .overlay-dark { box-sizing: border-box; }
+.reveal .kit-split .points { font-size: .72em; margin: 6px 0 0; }
+.reveal .panel.browser .panel-body.page { padding: 0; min-height: 0; position: relative; background: #fff; }
+.reveal iframe.kit-page { display: block; width: 100%; height: 300px; border: 0; background: #fff; }
+.reveal iframe.kit-page.short { height: 240px; }
+.reveal .measure { position: absolute; right: 8px; bottom: 8px; font: 700 24px/1 var(--font-mono); color: var(--signal);
+  background: rgba(16,26,43,.92); padding: 6px 10px; border-radius: 6px; border: 2px solid var(--signal); }
+.reveal .qbrowser .panel-body, .reveal .qterm .panel-body { min-height: 220px; display: grid; place-items: center; background: #fff; }
+.reveal .qterm .panel-body { background: #0B0B0B; }
+.reveal .qmark { font: 700 3.6em/1 var(--font-display); color: var(--amber); }
+.reveal .canvas-frame.qframe { display: grid; place-items: center; max-width: 360px; }
+.reveal .kit-sketch .canvas-frame { max-width: 380px; }
+.reveal .panel.term { border-top: 3px solid var(--go); background: #0B0B0B; }
+.reveal .tabbar.pane { background: #1E1E1E; border-bottom: 1px solid #333; }
+.reveal .tabbar.pane .tab { border-right: none; padding: 0 14px; letter-spacing: .09em; text-transform: uppercase;
+  color: #E7E7E7; box-shadow: inset 0 -2px 0 #E7E7E7; background: none; }
+.reveal .panel.term .out { white-space: pre; padding: 4px 18px; font: 600 .92em/1.45 var(--font-mono); color: var(--vs-text); }
+.reveal .panel.term .out i { color: var(--chalk-dim); }
+.reveal .state { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 0 8px; font: 600 .66em/1 var(--font-mono); }
+.reveal .state .chip { border: 1px solid var(--wire); border-radius: 8px; padding: 8px 14px; background: rgba(43,63,95,.35); }
+.reveal .state .chip b { color: var(--chalk-dim); }
+.reveal .state .chip .v { color: var(--amber); font-weight: 700; }
+.reveal .kit-icon { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 12px;
+  border: 2px solid currentColor; color: var(--amber); background: rgba(16,26,43,.5); flex: none; }
+.reveal .kit-icon .kit-mark { width: 36px; height: 36px; display: block; }
+.reveal .goal-card .kit-icon { margin-bottom: 12px; }
+.reveal .goal-card.blue .kit-icon { color: #569CD6; }
+.reveal .goal-card.green .kit-icon { color: var(--go); }
+.reveal .goal-card.pink .kit-icon { color: var(--signal); }
+.reveal .goal-card.amber .kit-icon { color: var(--amber); }
+.reveal .kit-goals.c3 { grid-template-columns: repeat(3, 1fr); }
+.reveal .kit-goals.c4 { grid-template-columns: repeat(4, 1fr); }
+.reveal .kit-goals .goal-card { padding: 18px 18px 16px 22px; }
+.reveal .kit-goals .term { font-size: 1.2em; overflow-wrap: anywhere; }
+.reveal .kit-goals .desc { font-size: .72em; }
+.reveal .step-header .kit-icon { width: 104px; height: 104px; border-width: 3px; border-radius: 18px; }
+.reveal .step-header .kit-icon .kit-mark { width: 66px; height: 66px; }
+.reveal section.cover h1.step-title.long { font-size: 2.9em; line-height: 1.02; }
+.reveal .kit-draw { display: grid; grid-template-columns: minmax(0, max-content) minmax(380px, 1fr); gap: 34px;
+  align-items: center; width: 100%; }
+.reveal .kit-draw.alone { grid-template-columns: 1fr; justify-items: center; }
+.reveal .kit-draw > * { min-width: 0; }
+.reveal .kit-draw .an { font: 600 .72em/1.3 var(--font-body); margin: 8px 0; display: block; }
+.reveal .kit-draw .an .arw { margin-right: 10px; }
+.reveal .kit-box { font: 600 24px/1 var(--font-mono); }
+.reveal .kit-box .r { position: relative; padding: 42px 30px 22px; border-radius: 8px; }
+.reveal .kit-box .r > .lab { position: absolute; top: 10px; left: 14px; }
+.reveal .kit-box .r > .val { position: absolute; top: 10px; right: 14px; }
+.reveal .kit-box .m { background: rgba(242,183,5,.12); border: 3px dashed var(--amber); color: var(--amber); }
+.reveal .kit-box .b { background: var(--ink-2); border: 6px solid #569CD6; color: #9CC8F0; }
+.reveal .kit-box .p { background: rgba(90,219,140,.22); color: var(--go); }
+.reveal .kit-box .c { background: var(--chalk); color: var(--ink); padding: 20px 30px; text-align: center; border-radius: 4px; }
+.reveal .gapbox { position: relative; padding: 18px; background: #0B1220; border-radius: 8px; min-width: 420px; }
+.reveal .gapbox .bx { padding: 14px 18px; border: 2px solid #569CD6; color: var(--chalk); font: 600 .72em var(--font-mono);
+  background: var(--ink-2); border-radius: 6px; }
+.reveal .gapbox .mg { height: 64px; position: relative; }
+.reveal .gapbox .mg .q { position: absolute; inset: 0; display: grid; place-items: center; font: 700 1.2em var(--font-display);
+  color: var(--amber); }
+.reveal .gapbox .mg.ruler { border-left: 4px solid var(--signal); margin-left: 40px; }
+.reveal .gapbox .mg.ruler span { position: absolute; left: 14px; top: 50%; translate: 0 -50%; font: 700 .8em var(--font-mono);
+  color: var(--signal); }
+.reveal .kit-width { padding: 18px; background: #0B1220; border-radius: 8px; min-width: 420px; }
+.reveal .kit-width .bx { padding: 14px 18px; border: 2px solid #569CD6; color: var(--chalk); font: 600 .72em var(--font-mono);
+  background: var(--ink-2); border-radius: 6px; }
+.reveal .kit-width .wruler { margin-top: 12px; border-top: 4px solid var(--signal); text-align: center; }
+.reveal .kit-width .wruler span { font: 700 .8em var(--font-mono); color: var(--signal); }
+.reveal .kit-width .wq { margin-top: 12px; text-align: center; font: 700 1.2em var(--font-display); color: var(--amber); }
+.reveal .panel-body.page .kit-shot { position: absolute; top: 0; left: 0; width: 100%; display: block; }
+.reveal .panel-body.page iframe.kit-page { position: relative; }
+.reveal .kit-flow { justify-content: center; row-gap: 18px; }
+.reveal .kit-flow .step { font-size: .78em; padding: .5em .8em; }
+.reveal .kit-stack { display: grid; gap: 8px; width: max-content; min-width: 280px; }
+.reveal .kit-stack .frame { padding: 10px 18px; border: 2px solid var(--wire); border-radius: 10px; background: var(--ink-2);
+  font: 600 .74em var(--font-mono); color: var(--chalk-dim); }
+.reveal .kit-stack .frame.top { border-color: var(--go); color: var(--chalk); }
+.reveal .kit-vars { display: grid; grid-template-columns: repeat(3, max-content); gap: 18px; }
+.reveal .kit-vars .box { min-width: 150px; padding: 12px 18px; border: 2px solid var(--wire); border-radius: 10px; background: var(--ink-2); }
+.reveal .kit-vars .box b { display: block; font: 600 .66em var(--font-mono); color: var(--chalk-dim); }
+.reveal .kit-vars .box span { display: block; font: 700 1.1em var(--font-mono); color: var(--chalk); }
+.reveal section.predict-slide h2 { font-size: 1.6em; }
+
+:root, :root[data-scheme] { --ink: var(--dk-blueprint-dark-ink); --ink-2: var(--dk-blueprint-dark-ink-2); --wire: var(--dk-blueprint-dark-wire); --grid: var(--dk-blueprint-dark-grid); --chalk: var(--dk-blueprint-dark-chalk); --chalk-dim: var(--dk-blueprint-dark-chalk-dim); --signal: var(--dk-blueprint-dark-signal); --on-signal: var(--dk-blueprint-dark-on-signal); --amber: var(--dk-blueprint-dark-amber); --go: var(--dk-blueprint-dark-go); --tag: var(--dk-blueprint-dark-tag); --tag-text: var(--dk-blueprint-dark-tag-text); --vs-bg: var(--dk-code-dark-vs-bg); --vs-text: var(--dk-code-dark-vs-text); --vs-keyword: var(--dk-code-dark-vs-keyword); --vs-control: var(--dk-code-dark-vs-control); --vs-func: var(--dk-code-dark-vs-func); --vs-string: var(--dk-code-dark-vs-string); --vs-number: var(--dk-code-dark-vs-number); --vs-var: var(--dk-code-dark-vs-var); --vs-type: var(--dk-code-dark-vs-type); --vs-comment: var(--dk-code-dark-vs-comment); --vs-tag: var(--dk-code-dark-vs-tag); --vs-tag-name: var(--dk-code-dark-vs-tag-name); --vs-selector: var(--dk-code-dark-vs-selector); --vs-gutter: var(--dk-code-dark-vs-gutter); --vs-blank: var(--dk-code-dark-vs-blank); --vs-attr: var(--dk-code-dark-vs-attr); --vs-value: var(--dk-code-dark-vs-value); --vs-chrome: var(--dk-code-dark-vs-chrome); --vs-line: var(--dk-code-dark-vs-line); --vs-tab-dim: var(--dk-code-dark-vs-tab-dim); --vs-tab-active: var(--dk-code-dark-vs-tab-active); --vs-focus: var(--dk-code-dark-vs-focus); --font-display: 'Space Grotesk', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --font-body: 'IBM Plex Sans', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --deck-scheme: dark; color-scheme: dark; --deck-title-scale: 1; --deck-body-scale: 1; }
+@media print { :root:root:root { --ink: var(--dk-blueprint-light-ink); --ink-2: var(--dk-blueprint-light-ink-2); --wire: var(--dk-blueprint-light-wire); --grid: var(--dk-blueprint-light-grid); --chalk: var(--dk-blueprint-light-chalk); --chalk-dim: var(--dk-blueprint-light-chalk-dim); --signal: var(--dk-blueprint-light-signal); --on-signal: var(--dk-blueprint-light-on-signal); --amber: var(--dk-blueprint-light-amber); --go: var(--dk-blueprint-light-go); --tag: var(--dk-blueprint-light-tag); --tag-text: var(--dk-blueprint-light-tag-text); --vs-bg: var(--dk-code-light-vs-bg); --vs-text: var(--dk-code-light-vs-text); --vs-keyword: var(--dk-code-light-vs-keyword); --vs-control: var(--dk-code-light-vs-control); --vs-func: var(--dk-code-light-vs-func); --vs-string: var(--dk-code-light-vs-string); --vs-number: var(--dk-code-light-vs-number); --vs-var: var(--dk-code-light-vs-var); --vs-type: var(--dk-code-light-vs-type); --vs-comment: var(--dk-code-light-vs-comment); --vs-tag: var(--dk-code-light-vs-tag); --vs-tag-name: var(--dk-code-light-vs-tag-name); --vs-selector: var(--dk-code-light-vs-selector); --vs-gutter: var(--dk-code-light-vs-gutter); --vs-blank: var(--dk-code-light-vs-blank); --vs-attr: var(--dk-code-light-vs-attr); --vs-value: var(--dk-code-light-vs-value); --vs-chrome: var(--dk-code-light-vs-chrome); --vs-line: var(--dk-code-light-vs-line); --vs-tab-dim: var(--dk-code-light-vs-tab-dim); --vs-tab-active: var(--dk-code-light-vs-tab-active); --vs-focus: var(--dk-code-light-vs-focus); --font-display: 'Space Grotesk', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --font-body: 'IBM Plex Sans', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; --deck-scheme: light; color-scheme: light; --deck-title-scale: 1; --deck-body-scale: 1; } }
+.reveal-viewport[data-mode]::before { left: 0; top: 0; bottom: 0; width: 24px; padding: 14px 0 0; box-sizing: border-box; border-radius: 0; background: var(--tag-dot); color: var(--on-signal); writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: .08em; text-align: start; }
+.reveal-viewport::after { content: "(0, 0)"; content: "(0, 0)" / ""; position: fixed; left: 34px; top: 10px; z-index: 30; pointer-events: none; font: 500 13px/1 var(--font-mono); color: var(--chalk-dim); }
+@media print { .reveal-viewport::after { content: none; } }
+@keyframes deck-frame-in { from { opacity: 0; transform: translateX(16px); } }
+@media (prefers-reduced-motion: no-preference) { .reveal .slides > section.present:not(.stack), .reveal .slides > section.stack > section.present { animation: deck-frame-in .32s ease-out backwards; } }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section class="cover" data-lesson="lab">
+  <div class="overlay-dark hero-cover">
+    <div>
+      <span class="eyebrow">Unit 3 &middot; Lesson 6</span>
+      <h1>GameHub 6: Game Gallery</h1>
+      <div class="subtitle">Day 6 of 10: set up, grid, auto-fit columns, a featured tile</div>
+      <div class="goal-line">A grid makes its own columns: as many as fit, and one tile can take two of them.</div>
+    </div>
+    
+  </div>
+  
+</section>
+
+<section data-mode="ask" class="ask" data-part="donow" data-collect="choice" data-id="which-stopped-the-squash" data-prompt="Day 5 stopped a picture being stretched. Which line did it?" data-choices="object-fit: cover;|overflow: hidden;|flex: 1;|max-width: 100%;|transform: scale(1);" data-topic="object-fit">
+  <span class="eyebrow">Do Now 1</span>
+  <h2>Day 5 stopped a picture being stretched. Which line did it?</h2>
+  <div class="split"><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.split-media img </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">width</span>: <span class="nu">100%</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">height</span>: <span class="nu">320px</span>;</span></div><div class="ln"><span class="num">4</span><span>  <span class="sel">???</span></span></div><div class="ln"><span class="num">5</span><span>}</span></div></div></div><ul class="choices"><li><b>A</b><span>object-fit: cover;</span></li><li><b>B</b><span>overflow: hidden;</span></li><li><b>C</b><span>flex: 1;</span></li><li><b>D</b><span>max-width: 100%;</span></li><li><b>E</b><span>transform: scale(1);</span></li></ul></div>
+  
+</section>
+
+<section data-mode="ask" data-reveal><div class="btcs-answer-wait"><span class="eyebrow">Answer first</span><h2>Day 5 stopped a picture being stretched. Which line did it?</h2><p>The answer shows here once you've answered.</p></div></section>
+
+<section data-mode="teach" data-part="teach" data-kit="goals">
+  <span class="eyebrow">By the end of today</span>
+  <h2>By the end of today</h2>
+  <div class="goal-grid kit-goals c4"><div class="goal-card blue"><span class="kit-icon" data-mark="page"><svg class="kit-mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="40" height="32" rx="4"/><line x1="4" y1="17" x2="44" y2="17"/><line x1="11" y1="25" x2="30" y2="25"/><line x1="11" y1="32" x2="24" y2="32"/></svg></span><span class="term">grid</span><p class="desc">A gallery of rows and columns.</p></div><div class="goal-card green"><span class="kit-icon" data-mark="code"><svg class="kit-mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,13 6,24 16,35"/><polyline points="32,13 42,24 32,35"/><line x1="27" y1="9" x2="21" y2="39"/></svg></span><span class="term">auto-fit</span><p class="desc">As many columns as fit the screen.</p></div><div class="goal-card pink"><span class="kit-icon" data-mark="box"><svg class="kit-mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="42" height="42" rx="5" stroke-dasharray="5 4"/><rect x="10" y="10" width="28" height="28" rx="3"/><rect x="17" y="17" width="14" height="14" rx="2"/></svg></span><span class="term">span 2</span><p class="desc">One tile takes two columns.</p></div><div class="goal-card amber"><span class="kit-icon" data-mark="check"><svg class="kit-mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="38" height="38" rx="7"/><polyline points="14,25 21,32 34,17"/></svg></span><span class="term">caption</span><p class="desc">The name and genre under each picture.</p></div></div>
+  
+</section>
+
+<section data-mode="teach" class="mid-code" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>The grid counts the columns</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.gallery </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">display</span>: <span class="vl">grid</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">gap</span>: <span class="nu">24px</span>;</span></div><div class="ln"><span class="num">4</span><span>  <span class="at">grid-template-columns</span>:</span></div><div class="ln"><span class="num">5</span><span>    <span class="sel">repeat(auto-fit,</span></span></div><div class="ln"><span class="num">6</span><span>      <span class="sel">minmax(240px, 1fr));</span></span></div><div class="ln"><span class="num">7</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> <code>auto-fit</code>: as many as fit</div><div class="an fragment"><span class="arw">&rarr;</span> <code>minmax</code>: never under 240px</div><div class="an fragment t"><span class="arw">&rarr;</span> <code>1fr</code>: share what is left</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page The grid counts the columns" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.gallery {&#10;  display: grid;&#10;  gap: 24px;&#10;  grid-template-columns:&#10;    repeat(auto-fit,&#10;      minmax(240px, 1fr));&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c4&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;p&gt;Racing&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;p&gt;Strategy&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#13233f&quot;/&gt;&lt;path d=&quot;M0 640 Q600 610 1200 630 L1200 800 L0 800 Z&quot; fill=&quot;#17402f&quot;/&gt;&lt;path d=&quot;M600 620 Q555 540 600 470 Q645 540 600 620 Z&quot; fill=&quot;#f59e0b&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Ember Trail&lt;/h3&gt;&lt;p&gt;Adventure&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b5e6e&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;300&quot; fill=&quot;#2d8a9c&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;180&quot; fill=&quot;#8fdce6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Tidepool&lt;/h3&gt;&lt;p&gt;Puzzle&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div><div class="key-line">You name the smallest a column may be; the grid works out how many fit.</div></div></div>
+  
+</section>
+
+<section data-mode="ask" class="ask predict-slide" data-collect="choice" data-id="how-many-columns" data-prompt="The gallery box is 800px wide. How many columns does this make?" data-choices="1|2|3|4|5" data-topic="auto-fit columns" data-kit="predict">
+  <span class="eyebrow">Predict</span>
+  <h2>The gallery box is 800px wide. How many columns does this make?</h2>
+  <div class="demo kit-split"><div><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="at">gap</span>: <span class="nu">24px</span>;</span></div><div class="ln"><span class="num">2</span><span><span class="at">grid-template-columns</span>:</span></div><div class="ln"><span class="num">3</span><span>  <span class="sel">repeat(auto-fit,</span></span></div><div class="ln"><span class="num">4</span><span>    <span class="sel">minmax(240px, 1fr));</span></span></div></div></div><ul class="choices"><li><b>A</b><span>1</span></li><li><b>B</b><span>2</span></li><li><b>C</b><span>3</span></li><li><b>D</b><span>4</span></li><li><b>E</b><span>5</span></li></ul></div><div><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page short" sandbox="" title="The page The gallery box is 800px wide. How many columns does this make?" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;gap: 24px;&#10;grid-template-columns:&#10;  repeat(auto-fit,&#10;    minmax(240px, 1fr));&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div style=&quot;font-family:Poppins,system-ui,sans-serif;color:#1f2933&quot;&gt;&lt;div style=&quot;font-weight:700;margin-bottom:6px&quot;&gt;The gallery box: 800px wide&lt;/div&gt;&lt;div style=&quot;width:800px;max-width:100%;border:2px solid #1f2933;border-radius:6px;height:90px;display:flex;align-items:center;justify-content:center;color:#4a5565&quot;&gt;7 tiles go in here. Each column is at least 240px, with 24px gaps.&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="ask" class="predict-slide" data-reveal><div class="btcs-answer-wait"><span class="eyebrow">Answer first</span><h2>The gallery box is 800px wide. How many columns does this make?</h2><p>The answer shows here once you've answered.</p></div></section>
+
+<section class="cover" data-part="build" data-kit="part">
+  <div class="overlay-dark"><div class="step-header"><span class="kit-icon" data-mark="check"><svg class="kit-mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="38" height="38" rx="7"/><polyline points="14,25 21,32 34,17"/></svg></span><span class="step-label">Lab</span></div><h1 class="step-title">Your turn</h1><div class="subtitle">Set up, then 6 steps in css/day6.css</div></div>
+  
+</section>
+
+<section data-mode="teach" class="mid-code" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 0 Set up today&#x27;s folder</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="cm">/* 1. Duplicate your day 5 folder. */</span></span></div><div class="ln"><span class="num">2</span><span><span class="cm">/* 2. Rename the copy  day6  */</span></span></div><div class="ln"><span class="num">3</span><span><span class="cm">/* 3. Upload today&#x27;s files into it:</span></span></div><div class="ln"><span class="num">4</span><span>      <span class="sel">gamehub.html  (the gallery)</span></span></div><div class="ln"><span class="num">5</span><span>      <span class="sel">css/day6.css  (you write here)</span></span></div><div class="ln"><span class="num">6</span><span>      <span class="sel">img/          (seven pictures)</span></span></div><div class="ln"><span class="num">7</span><span>      <span class="sel">check.js      (the panel)</span></span></div><div class="ln"><span class="num">8</span><span>      <span class="sel">targets.html  (aim at these) */</span></span></div><div class="ln"><span class="num">9</span><span><span class="cm">/* 4. Open it with Live Server. */</span></span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> Your day1-day5 CSS comes across: keep it</div><div class="an fragment"><span class="arw">&rarr;</span> Only today&#x27;s files are new</div><div class="an fragment t"><span class="arw">&rarr;</span> Seven games stacked = ready for Step 1</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 0 Set up today&#x27;s folder" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;/* 1. Duplicate your day 5 folder. */&#10;/* 2. Rename the copy  day6  */&#10;/* 3. Upload today&#x27;s files into it:&#10;      gamehub.html  (the gallery)&#10;      css/day6.css  (you write here)&#10;      img/          (seven pictures)&#10;      check.js      (the panel)&#10;      targets.html  (aim at these) */&#10;/* 4. Open it with Live Server. */&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;tree&quot;&gt;&lt;div style=&quot;font-family:Poppins,system-ui,sans-serif;font-weight:700;margin-bottom:6px&quot;&gt;day6/ &lt;span style=&quot;font-weight:400;color:#4a5565&quot;&gt;(your copy of day5/)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;gamehub.html &lt;span class=&quot;tag tnew&quot;&gt;new today&lt;/span&gt;&lt;/div&gt;&lt;div&gt;check.js &lt;span class=&quot;tag tnew&quot;&gt;new today&lt;/span&gt;&lt;/div&gt;&lt;div&gt;targets.html &lt;span class=&quot;tag tnew&quot;&gt;new today&lt;/span&gt;&lt;/div&gt;&lt;div&gt;css/&lt;/div&gt;&lt;div style=&quot;padding-left:20px;color:#4a5565&quot;&gt;day1.css &amp;hellip; day5.css &lt;span class=&quot;tag tkeep&quot;&gt;yours, keep&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;padding-left:20px&quot;&gt;day6.css &lt;span class=&quot;tag tyou&quot;&gt;you write here&lt;/span&gt;&lt;/div&gt;&lt;div&gt;img/ &lt;span class=&quot;tag tnew&quot;&gt;7 pictures&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div><div class="key-line">Duplicate day 5&#x27;s folder, rename it day6, and put today&#x27;s new files in it.</div></div></div>
+  
+</section>
+
+<section data-mode="teach" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 1 Make it a grid</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.gallery </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">display</span>: <span class="vl">grid</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">gap</span>: <span class="nu">24px</span>;</span></div><div class="ln"><span class="num">4</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> One column, for now</div><div class="an fragment"><span class="arw">&rarr;</span> <code>gap</code> 16px or more</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 1 Make it a grid" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.gallery {&#10;  display: grid;&#10;  gap: 24px;&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c1&quot;&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;p&gt;Racing&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;p&gt;Strategy&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="teach" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 2 Columns that fit</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.gallery </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">grid-template-columns</span>:</span></div><div class="ln"><span class="num">3</span><span>    <span class="sel">repeat(auto-fit,</span></span></div><div class="ln"><span class="num">4</span><span>      <span class="sel">minmax(240px, 1fr));</span></span></div><div class="ln"><span class="num">5</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> As many as fit</div><div class="an fragment"><span class="arw">&rarr;</span> Never under 240px</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 2 Columns that fit" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.gallery {&#10;  grid-template-columns:&#10;    repeat(auto-fit,&#10;      minmax(240px, 1fr));&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c4&quot;&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#13233f&quot;/&gt;&lt;path d=&quot;M0 640 Q600 610 1200 630 L1200 800 L0 800 Z&quot; fill=&quot;#17402f&quot;/&gt;&lt;path d=&quot;M600 620 Q555 540 600 470 Q645 540 600 620 Z&quot; fill=&quot;#f59e0b&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Ember Trail&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b5e6e&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;300&quot; fill=&quot;#2d8a9c&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;180&quot; fill=&quot;#8fdce6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Tidepool&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="teach" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 3 The featured game</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.tile-featured </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">grid-column</span>: <span class="vl">span</span> <span class="nu">2</span>;</span></div><div class="ln"><span class="num">3</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> One tile, two columns</div><div class="an fragment"><span class="arw">&rarr;</span> The others do not move</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 3 The featured game" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.tile-featured {&#10;  grid-column: span 2;&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c4&quot;&gt;&lt;div class=&quot;t flat big&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;path d=&quot;M250 520 L560 440 L620 500 L300 580 Z&quot; fill=&quot;#e5e7eb&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#13233f&quot;/&gt;&lt;path d=&quot;M0 640 Q600 610 1200 630 L1200 800 L0 800 Z&quot; fill=&quot;#17402f&quot;/&gt;&lt;path d=&quot;M600 620 Q555 540 600 470 Q645 540 600 620 Z&quot; fill=&quot;#f59e0b&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Ember Trail&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="teach" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 4 One shape for every picture</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.tile img </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">width</span>: <span class="nu">100%</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">height</span>: <span class="nu">180px</span>;</span></div><div class="ln"><span class="num">4</span><span>  <span class="at">object-fit</span>: <span class="vl">cover</span>;</span></div><div class="ln"><span class="num">5</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> Day 5&#x27;s rule again</div><div class="an fragment"><span class="arw">&rarr;</span> <code>cover</code> crops, never squashes</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 4 One shape for every picture" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.tile img {&#10;  width: 100%;&#10;  height: 180px;&#10;  object-fit: cover;&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c3&quot;&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t flat&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b5e6e&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;300&quot; fill=&quot;#2d8a9c&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;180&quot; fill=&quot;#8fdce6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Tidepool&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="teach" class="mid-code" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 5 Make each tile a card</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.tile </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">background-color</span>: <span class="nu">#ffffff</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">border-radius</span>: <span class="nu">12px</span>;</span></div><div class="ln"><span class="num">4</span><span>  <span class="at">overflow</span>: <span class="vl">hidden</span>;</span></div><div class="ln"><span class="num">5</span><span>  <span class="at">box-shadow</span>: <span class="nu">0</span> <span class="nu">4px</span> <span class="nu">12px</span></span></div><div class="ln"><span class="num">6</span><span>    <span class="sel">rgba(0, 0, 0, 0.12);</span></span></div><div class="ln"><span class="num">7</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> Day 3&#x27;s recipe</div><div class="an fragment"><span class="arw">&rarr;</span> <code>overflow</code> rounds the picture too</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 5 Make each tile a card" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.tile {&#10;  background-color: #ffffff;&#10;  border-radius: 12px;&#10;  overflow: hidden;&#10;  box-shadow: 0 4px 12px&#10;    rgba(0, 0, 0, 0.12);&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c3&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b5e6e&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;300&quot; fill=&quot;#2d8a9c&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;180&quot; fill=&quot;#8fdce6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap bare&quot;&gt;&lt;h3&gt;Tidepool&lt;/h3&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="teach" class="mid-code" data-kit="idea">
+  <span class="eyebrow">The idea</span>
+  <h2>Step 6 The caption</h2>
+  <div class="demo wide-left kit-split"><div><span class="side-label">source · style.css</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.tile-caption </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">padding</span>: <span class="nu">12px</span> <span class="nu">16px</span>;</span></div><div class="ln"><span class="num">3</span><span>}</span></div><div class="ln"><span class="num">4</span><span><span class="sel">.tile-caption h3 </span>{</span></div><div class="ln"><span class="num">5</span><span>  <span class="at">margin</span>: <span class="nu">0</span>;</span></div><div class="ln"><span class="num">6</span><span>  <span class="at">color</span>: <span class="vl">var</span>(<span class="vl">--primary</span>);</span></div><div class="ln"><span class="num">7</span><span>}</span></div><div class="ln"><span class="num">8</span><span><span class="sel">.tile-genre </span>{</span></div><div class="ln"><span class="num">9</span><span>  <span class="at">margin</span>: <span class="nu">4px</span> <span class="nu">0</span> <span class="nu">0</span>;</span></div><div class="ln"><span class="num">10</span><span>  <span class="at">color</span>: <span class="nu">#4a5565</span>;</span></div><div class="ln"><span class="num">11</span><span>}</span></div></div></div><div class="an fragment"><span class="arw">&rarr;</span> Room inside the card</div><div class="an fragment"><span class="arw">&rarr;</span> Contrast 4.5, as on day 2</div></div><div><span class="side-label">preview · Live Server</span><div class="panel browser kit-result"><div class="tabbar browser-bar"><div class="lights"><span></span><span></span><span></span></div><div class="url"><span class="host">127.0.0.1:5500/</span><span class="file">index.html</span></div></div><div class="panel-body page"><iframe class="kit-page" sandbox="" title="The page Step 6 The caption" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style id=&quot;base&quot;&gt;html,body{margin:0;overflow:hidden}body{padding:14px 18px;font:24px/1.4 &#x27;Segoe UI Variable&#x27;,&#x27;Segoe UI&#x27;,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1A1A2E;background:#fff}&lt;/style&gt;&lt;style id=&quot;lesson&quot;&gt;body{font-family:Poppins,system-ui,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#1f2933}.gal{display:grid;gap:14px}.c1{grid-template-columns:1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.auto{width:800px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.t{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.flat{background:none;border-radius:0;overflow:visible;box-shadow:none}.big{grid-column:span 2}.sh{display:block;width:100%;height:84px}.cap{padding:8px 10px}.cap h3{margin:0;color:#1e3a8a;font-size:15px}.cap p{margin:2px 0 0;color:#4a5565;font-size:12px}.bare{padding:0}.bare h3{margin:14px 0 0}.row{display:flex;gap:14px}.row&gt;div{flex:1}.tree{font-family:&#x27;Cascadia Mono&#x27;,Consolas,monospace;font-size:13px;line-height:1.75}.tag{font-family:Poppins,system-ui,sans-serif;font-size:11px;border-radius:3px;padding:0 6px}.tnew{background:#fde8c6}.tkeep{background:#d8efdf}.tyou{background:#cfe0f7}&lt;/style&gt;&lt;style id=&quot;code&quot;&gt;.tile-caption {&#10;  padding: 12px 16px;&#10;}&#10;.tile-caption h3 {&#10;  margin: 0;&#10;  color: var(--primary);&#10;}&#10;.tile-genre {&#10;  margin: 4px 0 0;&#10;  color: #4a5565;&#10;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class=&quot;gal c3&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b1245&quot;/&gt;&lt;circle cx=&quot;870&quot; cy=&quot;300&quot; r=&quot;180&quot; fill=&quot;#5b3fa8&quot;/&gt;&lt;ellipse cx=&quot;870&quot; cy=&quot;300&quot; rx=&quot;290&quot; ry=&quot;52&quot; fill=&quot;none&quot; stroke=&quot;#f59e0b&quot; stroke-width=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Nebula Drift&lt;/h3&gt;&lt;p&gt;Racing &amp;middot; 2-8 players&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#7cc4e8&quot;/&gt;&lt;path d=&quot;M0 620 Q600 520 1200 560 L1200 800 L0 800 Z&quot; fill=&quot;#3f8f5a&quot;/&gt;&lt;rect x=&quot;420&quot; y=&quot;330&quot; width=&quot;360&quot; height=&quot;270&quot; fill=&quot;#9aa5b5&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Pixel Keep&lt;/h3&gt;&lt;p&gt;Strategy &amp;middot; 1-4 players&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;&lt;svg class=&quot;sh&quot; viewBox=&quot;0 0 1200 800&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;&lt;rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;#1b5e6e&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;300&quot; fill=&quot;#2d8a9c&quot;/&gt;&lt;circle cx=&quot;600&quot; cy=&quot;400&quot; r=&quot;180&quot; fill=&quot;#8fdce6&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;cap&quot;&gt;&lt;h3&gt;Tidepool&lt;/h3&gt;&lt;p&gt;Puzzle &amp;middot; 1 player&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div></div></div></div>
+  
+</section>
+
+<section data-mode="code" class="mid-code" data-step="Done early" data-extra>
+  <span class="eyebrow">Done early?</span>
+  <h2>Done early</h2>
+  <div class="demo wide-left kit-split"><div><p>Make the featured tile two rows tall as well: add grid-row: span 2 to .tile-featured, and let its picture fill the taller tile with height: 100%.</p></div><div><span class="side-label">what done looks like</span><div class="panel code"><div class="tabbar"><span class="tab active">style.css</span></div><div class="panel-body"><div class="ln"><span class="num">1</span><span><span class="sel">.tile-featured </span>{</span></div><div class="ln"><span class="num">2</span><span>  <span class="at">grid-column</span>: <span class="vl">span</span> <span class="nu">2</span>;</span></div><div class="ln"><span class="num">3</span><span>  <span class="at">grid-row</span>: <span class="vl">span</span> <span class="nu">2</span>;</span></div><div class="ln"><span class="num">4</span><span>}</span></div><div class="ln"><span class="num">5</span><span><span class="sel">.tile-featured img </span>{</span></div><div class="ln"><span class="num">6</span><span>  <span class="at">height</span>: <span class="nu">100%</span>;</span></div><div class="ln"><span class="num">7</span><span>}</span></div></div></div></div></div>
+  
+</section>
+
+<section data-mode="ask" class="ask" data-part="exit" data-collect="text" data-id="why-auto-fit" data-prompt="Why write repeat(auto-fit, minmax(240px, 1fr)) instead of repeat(4, 1fr)? One sentence." data-topic="auto-fit columns">
+  <span class="eyebrow">Before you log off</span>
+  <h2>Why write repeat(auto-fit, minmax(240px, 1fr)) instead of repeat(4, 1fr)? One sentence.</h2>
+  
+  
+</section>
+
+<section data-mode="teach" data-part="homework">
+  <span class="eyebrow">Homework</span>
+  <h2>Finish day 6 tonight</h2>
+  <div class="vocab"><div class="row"><span class="w">Who</span><span class="d">On your own: your code, your Turn in</span></div><div class="row"><span class="w">Due</span><span class="d">Next class, 7:30 am (5 points)</span></div><div class="row"><span class="w">Set up</span><span class="d">Duplicate your day 5 folder, rename it day6, and upload today&#x27;s files into it</span></div><div class="row"><span class="w">Download</span><span class="d">Today&#x27;s zip: gamehub.html has the games gallery, and img/ has seven new pictures</span></div><div class="row"><span class="w">Write in</span><span class="d">css/day6.css only</span></div><div class="row"><span class="w">Turn in</span><span class="d">Press Turn in on your GameHub project in Syncc</span></div></div>
+  
+</section>
+
+<section class="cover">
+  <div class="overlay-dark hero-cover"><div><h1>Nice Work</h1></div></div>
+  
+</section>
+
+</div>
+</div>
+<script src="/_app/vendor/reveal/5.1.0/reveal.js"></script>
+<script src="/_app/vendor/reveal/5.1.0/plugin/notes/notes.js"></script>
+<script>
+/* Served by the app, the vendored copies above loaded; anywhere else, the CDN's. */
+var DECK_LIBS_LOCAL = !!(window.Reveal && window.RevealNotes);
+if (!DECK_LIBS_LOCAL) document.write('<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"><\/script>' +
+  '<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"><\/script>');
+</script>
+<script>
+/* ── live p5 previews ── each frame runs the sketch beside it via srcdoc.
+   Errors are not displayed: a failing sketch shows only its symptom. */
+/* A full address: the frame's srcdoc page has none of its own to read a path against. */
+var P5_URL = DECK_LIBS_LOCAL ? new URL('/_app/vendor/p5/1.9.4/p5.min.js', document.baseURI).href
+                             : 'https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js';
+function buildPage(code) {
+  return ['<!DOCTYPE html><html><head><meta charset="utf-8">',
+    '<script src="', P5_URL, '"><\/script>',
+    '<style>html,body{margin:0;height:100%;background:#101A2B;overflow:hidden}',
+    'body{display:flex;align-items:center;justify-content:center}',
+    /* p5 writes width/height inline on the canvas; filling the frame with
+       object-fit: contain keeps the sketch's own shape (a 600x400 cannon too) */
+    'canvas{width:100vw!important;height:100vh!important;object-fit:contain;display:block}</style>',
+    '<script>document.addEventListener("keydown",function(e){try{var R=parent.Reveal,k=e.key;'+
+    'if(k==="ArrowRight"||k==="ArrowDown"||k==="PageDown"||k===" "){R.next();e.preventDefault();}'+
+    'else if(k==="ArrowLeft"||k==="ArrowUp"||k==="PageUp"){R.prev();e.preventDefault();}}catch(_){}});<\/script>',
+    '</head><body><script>', code, '<\/script></body></html>'].join('');
+}
+function codeFor(frame) {
+  var col = frame.closest('.canvas-frame').parentNode;
+  var c = col.querySelector('.demo-code');
+  return c ? c.textContent : '';
+}
+function run(frame)  { frame.srcdoc = buildPage(codeFor(frame)); }
+function stop(frame) { frame.srcdoc = ''; }
+function each(sec, fn) { if (sec) sec.querySelectorAll('.demo-frame').forEach(fn); }
+document.querySelectorAll('[data-replay]').forEach(function (b) {
+  b.addEventListener('click', function () { run(b.parentNode.querySelector('.demo-frame')); });
+});
+
+/* ── the Screen is dark (SL1 #2823): presented (?present=1), the deck wears its theme's dark
+   side whatever the computer's setting; a student's screen follows their device. ── */
+if (/[?&]present=1\b/.test(location.search)) document.documentElement.setAttribute('data-scheme', 'dark');
+
+/* ── part tag ── the viewport carries the current slide's mode */
+function setMode(sec) {
+  var vp = document.querySelector('.reveal-viewport') || document.body;
+  vp.setAttribute('data-mode', (sec && sec.getAttribute('data-mode')) || '');
+}
+
+Reveal.initialize({
+  hash: true, slideNumber: 'c/t', controls: true, progress: true,
+  center: false, transition: 'none', backgroundTransition: 'none',
+  width: 1280, height: 720, margin: 0.03, minScale: 0.2, maxScale: 2.0,
+  plugins: [ RevealNotes ]
+});
+Reveal.on('ready', function (e) { each(e.currentSlide, run); setMode(e.currentSlide); });
+Reveal.on('slidechanged', function (e) {
+  each(e.previousSlide, stop); each(e.currentSlide, run); setMode(e.currentSlide);
+});
+
+/* ── animation kit: code-steps, watch-run, countdown, type-on ── */
+(function () {
+  function frames(el) { try { return JSON.parse(el.getAttribute('data-frames')) || []; } catch (e) { return []; } }
+  // code-steps and watch-run step together, one hidden fragment per step.
+  document.querySelectorAll('.reveal section').forEach(function (sec) {
+    var pre = sec.querySelector('pre.code-steps'), run = sec.querySelector('.watch-run');
+    if (!pre && !run) return;
+    var steps = pre ? (pre.getAttribute('data-steps') || '').split('|') : [];
+    var fr = run ? frames(run) : [];
+    // Lines split on the marked HTML: the shared highlighter never runs a mark across a line.
+    if (pre) pre.innerHTML = pre.innerHTML.split('\n').map(function (l) {
+      return '<span class="ln">' + l + ' </span>'; }).join('');
+    var count = Math.max(steps.length, fr.length);
+    for (var i = 0; i < count; i++) {
+      var f = document.createElement('span'); f.className = 'fragment kit-step'; f.setAttribute('data-kit-step', i);
+      f.style.display = 'none'; sec.appendChild(f);
+    }
+  });
+  function lines(spec) {
+    var on = {};
+    String(spec || '').split(',').forEach(function (part) {
+      var ab = part.split('-').map(Number);
+      for (var x = ab[0]; x <= (ab[1] || ab[0]); x++) on[x] = true;
+    });
+    return on;
+  }
+  function show(sec) {
+    if (!sec) return;
+    var done = sec.querySelectorAll('.kit-step.visible').length - 1;
+    var pre = sec.querySelector('pre.code-steps'), run = sec.querySelector('.watch-run');
+    if (pre) {
+      var spec = (pre.getAttribute('data-steps') || '').split('|')[done], on = lines(spec);
+      pre.classList.toggle('stepping', done >= 0);
+      pre.querySelectorAll('.ln').forEach(function (ln, k) { ln.classList.toggle('on', !!on[k + 1]); });
+    }
+    if (run) {
+      var fr = frames(run), now = done >= 0 ? fr[Math.min(done, fr.length - 1)] || {} : {}, before = done > 0 ? fr[done - 1] || {} : {};
+      run.innerHTML = Object.keys(now).map(function (key) {
+        var changed = done >= 0 && JSON.stringify(before[key]) !== JSON.stringify(now[key]);
+        return '<div class="box' + (changed ? ' changed' : '') + '"><b>' + key + '</b><span>' + JSON.stringify(now[key]) + '</span></div>';
+      }).join('') || '<div class="box"><b>Next</b><span>&#8594;</span></div>';
+    }
+  }
+  // countdown and type-on start when their slide shows.
+  var timer = null;
+  function start(sec) {
+    clearInterval(timer);
+    var c = sec && sec.querySelector('.countdown');
+    if (c) {
+      var left = +c.getAttribute('data-seconds') || 60;
+      var draw = function () { c.textContent = Math.floor(left / 60) + ':' + ('0' + left % 60).slice(-2); c.classList.toggle('done', left <= 0); };
+      draw(); timer = setInterval(function () { if (left > 0) { left--; draw(); } }, 1000);
+    }
+    var t = sec && sec.querySelector('pre.type-on');
+    if (t) {
+      var full = t.getAttribute('data-full') || t.textContent; t.setAttribute('data-full', full);
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { t.textContent = full; return; }
+      var n = 0; t.textContent = '';
+      var typing = setInterval(function () { t.textContent = full.slice(0, ++n); if (n >= full.length) clearInterval(typing); }, 28);
+    }
+  }
+  // flip cards turn on a click (or Enter), and back.
+  document.querySelectorAll('.reveal .flip').forEach(function (card) {
+    card.tabIndex = 0; card.setAttribute('role', 'button');
+    function turn() { card.classList.toggle('turned'); }
+    card.addEventListener('click', turn);
+    card.addEventListener('keydown', function (e) { if (e.key === 'Enter') { turn(); e.stopPropagation(); } });
+  });
+  Reveal.on('ready', function (e) { show(e.currentSlide); start(e.currentSlide); });
+  Reveal.on('slidechanged', function (e) { show(e.currentSlide); start(e.currentSlide); });
+  Reveal.on('fragmentshown', function (e) { show(Reveal.getCurrentSlide()); });
+  Reveal.on('fragmenthidden', function (e) { show(Reveal.getCurrentSlide()); });
+})();
+</script>
+</body>
+</html>

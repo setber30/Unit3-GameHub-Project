@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GameHub 6: Game Gallery — Reference</title>
+<style>
+  @page { size: letter portrait; margin: 0.4in; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; color: #16233A; max-width: 7.7in; margin: 0 auto;
+         font-size: 10pt; line-height: 1.34; }
+  header { border-bottom: 3px solid #16233A; padding-bottom: 5px; margin-bottom: 8px;
+           display: flex; justify-content: space-between; align-items: baseline; }
+  h1 { font-size: 13pt; margin: 0; }
+  .sub { font-size: 8.4pt; color: #5B6B82; }
+  h2 { font-size: 11pt; margin: 11px 0 5px; padding: 0 0 2px; border-bottom: 1px solid #DCE3EC; }
+  h2, h2 + .note { break-after: avoid; }
+  code { font-family: "Cascadia Mono", Consolas, monospace; font-size: 8.9pt; background: #EEF2F7; padding: 1px 4px;
+         border-radius: 3px; }
+  .code { font-size: 8.4pt; line-height: 1.42; padding: 7px 10px; border-radius: 5px; white-space: pre;
+          font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'calt' 0;
+          border-left: 3px solid #007acc; margin: 4px 0; break-inside: avoid; }
+  .epigraph { text-align: center; font-style: italic; font-size: 10.5pt; margin: 8px 0 12px; padding: 9px 20px;
+              border-top: 1px solid #DCE3EC; border-bottom: 1px solid #DCE3EC; }
+  .note { margin: 3px 0 2px; font-size: 8.9pt; }
+  .box { border-left: 4px solid #E8A33D; background: #FFF8EA; padding: 5px 9px; border-radius: 0 4px 4px 0;
+         margin: 6px 0; font-size: 8.9pt; break-inside: avoid; }
+  .box.keep { border-left-color: #4A8B5C; background: #F0F8F2; }
+  .box b.lbl { display: block; font-size: 7.4pt; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .timeline { display: flex; gap: 3px; margin: 0 0 10px; font-size: 7.6pt; font-family: "Cascadia Mono", monospace; }
+  .timeline div { padding: 4px 7px; border-radius: 3px; color: #FFFFFF; white-space: nowrap; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.9pt; margin: 3px 0; break-inside: avoid; }
+  th { background: #E8EDF4; text-align: left; padding: 4px 7px; font-size: 7.6pt; letter-spacing: .06em;
+       text-transform: uppercase; color: #5B6B82; }
+  td { padding: 4px 7px; border-bottom: 1px solid #DCE3EC; vertical-align: top; }
+  .prob { break-inside: avoid; margin-bottom: 8px; }
+  .blank { border-bottom: 1.5px solid #16233A; min-height: 26px; margin: 4px 0 10px; }
+  .who { display: flex; gap: 24px; font-size: 9.5pt; margin: 0 0 6px; }
+  .who span { flex: 1; border-bottom: 1px solid #16233A; padding-bottom: 2px; }
+  table.fill td { height: 28px; }
+  .page-break { break-before: page; }
+  footer { margin-top: 8px; padding-top: 5px; border-top: 1px solid #DCE3EC; font-size: 8.2pt; color: #5B6B82; }
+  @media screen { body { padding: 22px 16px; font-size: max(14px, 10pt); } code, .code, table, .note, .box, footer { font-size: max(14px, 9pt); }
+                  .code { overflow-x: auto; } }
+
+.code-vs { background: #1E1E1E; color: #D4D4D4; font-family: "Cascadia Code", Consolas, ui-monospace, "SF Mono", Menlo, monospace; }
+.code-vs .kw { color: #569CD6; }
+.code-vs .ct { color: #C586C0; }
+.code-vs .fn { color: #DCDCAA; }
+.code-vs .st { color: #CE9178; }
+.code-vs .nu { color: #B5CEA8; }
+.code-vs .va { color: #9CDCFE; }
+.code-vs .ty { color: #4EC9B0; }
+.code-vs .cm { color: #6A9955; }
+.code-vs .tg { color: #858585; }
+.code-vs .nm { color: #569CD6; }
+.code-vs .sel { color: #D7BA7D; }
+.code-vs .gt { color: #858585; }
+.code-vs .bl { color: #569CD6; }
+.code-vs .at { color: #9CDCFE; }
+.code-vs .vl { color: #CE9178; }
+.code-vs .cm { font-style: italic; }
+.code-vs .gt { user-select: none; }
+.code-vs .bl { border: 1px dashed #569CD6; border-radius: 3px; padding: 0 0.25em; }</style></head><body>
+<header><h1>GameHub 6: Game Gallery</h1><span class="sub">Unit 3 &middot; Lesson 6 &middot; Reference</span></header>
+<p class="epigraph">A grid lays a gallery out in rows and columns. You name the smallest a column may be, and the grid works out how many fit; one tile can take two columns.</p><h2>The grid</h2><p class="note">The gallery is the grid container. Its children, the tiles, become the grid items; gap is the space between them, in both directions.</p><div class="code code-vs"><span class="sel">.gallery </span>{
+    <span class="at">display</span>: <span class="vl">grid</span>;
+    <span class="at">gap</span>: <span class="nu">24px</span>;
+}</div><h2>Columns that fit themselves</h2><p class="note">repeat(auto-fit, ...) makes as many columns as fit. minmax(240px, 1fr) says a column is never under 240px, and otherwise shares what is left. No number of columns is ever typed.</p><div class="code code-vs"><span class="sel">.gallery </span>{
+    <span class="at">grid-template-columns</span>:
+        <span class="sel">repeat(auto-fit,</span>
+            <span class="sel">minmax(240px, 1fr));</span>
+}</div><h2>A tile that takes two</h2><p class="note">grid-column: span 2 tells one tile to cover two of the columns the grid made. The other tiles flow around it.</p><div class="code code-vs"><span class="sel">.tile-featured </span>{
+    <span class="at">grid-column</span>: <span class="vl">span</span> <span class="nu">2</span>;
+}</div><h2>One shape for every picture</h2><p class="note">A width, a height and object-fit: cover give every picture the same shape, so the tiles line up. This is day 5&#x27;s rule on a new box.</p><div class="code code-vs"><span class="sel">.tile img </span>{
+    <span class="at">width</span>: <span class="nu">100%</span>;
+    <span class="at">height</span>: <span class="nu">180px</span>;
+    <span class="at">object-fit</span>: <span class="vl">cover</span>;
+}</div><h2>Each tile is a card</h2><p class="note">Day 3&#x27;s card recipe. overflow: hidden is what makes the rounded corner cut the picture as well as the box.</p><div class="code code-vs"><span class="sel">.tile </span>{
+    <span class="at">background-color</span>: <span class="nu">#ffffff</span>;
+    <span class="at">border-radius</span>: <span class="nu">12px</span>;
+    <span class="at">overflow</span>: <span class="vl">hidden</span>;
+    <span class="at">box-shadow</span>: <span class="nu">0</span> <span class="nu">4px</span> <span class="nu">12px</span>
+        <span class="sel">rgba(0, 0, 0, 0.12);</span>
+}</div><h2>The caption</h2><p class="note">Padding gives the words room inside the card; margin: 0 stops the heading pushing the top open. Both lines need contrast 4.5 or more on the tile, as on day 2.</p><div class="code code-vs"><span class="sel">.tile-caption </span>{
+    <span class="at">padding</span>: <span class="nu">12px</span> <span class="nu">16px</span>;
+}
+<span class="sel">.tile-caption h3 </span>{
+    <span class="at">margin</span>: <span class="nu">0</span>;
+    <span class="at">color</span>: <span class="vl">var</span>(<span class="vl">--primary</span>);
+}
+<span class="sel">.tile-genre </span>{
+    <span class="at">margin</span>: <span class="nu">4px</span> <span class="nu">0</span> <span class="nu">0</span>;
+    <span class="at">color</span>: <span class="nu">#4a5565</span>;
+}</div><h2>When it looks wrong</h2><table><tr><th>You see</th><th>Cause</th><th>Fix</th></tr><tr><td>No gallery on the page at all</td><td>The day 5 folder was not duplicated, or the new files went elsewhere</td><td>Duplicate day 5&#x27;s folder, rename it day6, upload today&#x27;s files into it</td></tr><tr><td>One tall column, not a gallery</td><td>display: grid with no grid-template-columns</td><td>Add the repeat(auto-fit, minmax(240px, 1fr)) line</td></tr><tr><td>Row 2 red, but the gallery looks right</td><td>The columns were typed, like repeat(4, 1fr)</td><td>Use repeat(auto-fit, minmax(240px, 1fr))</td></tr><tr><td>Every tile is the featured size</td><td>span 2 written on .tile, not .tile-featured</td><td>Write it on .tile-featured</td></tr><tr><td>Tiles are different heights</td><td>No height on .tile img</td><td>Give the picture a height and object-fit: cover</td></tr><tr><td>The picture&#x27;s corners stick out of the card</td><td>No overflow: hidden on .tile</td><td>Add overflow: hidden to .tile</td></tr><tr><td>The words touch the edge of the card</td><td>No padding on .tile-caption</td><td>Add padding: 12px 16px</td></tr><tr><td>No change at all</td><td>Wrote in the wrong file</td><td>Write in css/day6.css</td></tr></table><h2>Words to know</h2><table><tr><td><b>display: grid</b></td><td>Lay the children out in rows and columns</td></tr><tr><td><b>grid-template-columns</b></td><td>What the columns are</td></tr><tr><td><b>repeat(auto-fit, ...)</b></td><td>As many columns as fit</td></tr><tr><td><b>minmax(240px, 1fr)</b></td><td>Never under 240px, otherwise share</td></tr><tr><td><b>1fr</b></td><td>One share of the space that is left</td></tr><tr><td><b>grid-column: span 2</b></td><td>This tile covers two columns</td></tr></table><footer>GameHub 6: Game Gallery</footer>
+</body></html>
